@@ -16,10 +16,16 @@ bin/
 .settings/
 *.sublime-workspace
 
+# Gradle & Gradlew
 .gradle/*
 gradle/*
+gradlew
+gradlew.bat
+
 build/*
 .vscode
+
+
 
 # IDE - VSCode
 .vscode/*
