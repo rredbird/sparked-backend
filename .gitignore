@@ -18,6 +18,8 @@ bin/
 
 .gradle/*
 gradle/*
+build/*
+.vscode
 
 # IDE - VSCode
 .vscode/*
