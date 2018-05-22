@@ -21,7 +21,7 @@ public class DataLayer {
     private MongoDatabase db;
 
     public DataLayer() {
-        mongoClient = new MongoClient("localhost", 32768);
+        mongoClient = new MongoClient("localhost", 27017);
 
         db = mongoClient.getDatabase("test");
         MongoCollection<Document> collection = db.getCollection("test");
