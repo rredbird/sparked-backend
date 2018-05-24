@@ -19,6 +19,9 @@ This project uses a mongo db for data persistence in a docker container for easy
 	- 27017 is the default mongodb port
 	- coda-mongo-db is the name of this instance in docker
 
+Troubleshooting:
+- If mongo docker image can not start it may help to restart docker. 
+
 # Java & Gradle
 1. Install java-sdk (tested with 10.0.1)
 	- test java nstallation and version with "java -version"
@@ -33,4 +36,7 @@ This project uses a mongo db for data persistence in a docker container for easy
 # Start project
 
 Start project with "./gradlew run"
+
+    - if mongo connection errors occure, check if mongo is running and the correct port is accessible. Restarting mongo docker image (and possibly docker) may help.
+
 
