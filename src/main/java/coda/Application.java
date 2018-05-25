@@ -1,8 +1,10 @@
 package coda;
 
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.IOException;
 
 import java.util.Properties;
 
@@ -16,6 +18,9 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     *
+     */
     private void writePropertiesFile() {
         OutputStream propertiesOutputStream = null;
         Properties properties = new Properties();
@@ -33,6 +38,22 @@ public class Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }                
+        }
+    }
+
+    /**
+     *
+     */
+    private void readPropertiesFiles() {
+        Properties properties = new Properties();
+        InputStream propertiesInputStream = null;
+
+        try {
+            input = new FileInputStream("config.properties");
+
+            properties.load(input);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
