@@ -49,9 +49,9 @@ public class Application {
         InputStream propertiesInputStream = null;
 
         try {
-            input = new FileInputStream("config.properties");
+            propertiesInputStream = new FileInputStream("config.properties");
 
-            properties.load(input);
+            properties.load(propertiesInputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
