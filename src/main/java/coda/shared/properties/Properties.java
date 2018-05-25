@@ -2,6 +2,12 @@ package coda.shared.properties;
 
 import java.util.Arrays;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.IOException;
+
 import org.bson.Document;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

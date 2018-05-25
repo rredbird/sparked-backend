@@ -2,6 +2,8 @@ package coda.database;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.mongodb.MongoClient;
 import com.mongodb.annotations.Beta;
 import com.mongodb.client.MongoCollection;
@@ -13,12 +15,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import coda.shared.dto.Greeting;
+import coda.shared.properties.Properties;
+import coda.shared.logging.Logging;
 
 @Component("dataLayer")
 public class DataLayer {
     private int greetingCounter = 0;
     private MongoClient mongoClient;
     private MongoDatabase db;
+
+    @Autowired
+    private Properties properties;
+
+    @Autowired Logging log;
 
     public DataLayer() {
         mongoClient = new MongoClient("localhost", 27017);
@@ -40,10 +49,11 @@ public class DataLayer {
     }
 
     public Greeting readGreeting(long id) {
+        log.debug("read greeting with id: " + id); 
         ++greetingCounter;
         return new Greeting(id, "Hello Coda, this is greeting number " + greetingCounter);
     }
     public void writeGreeting(Greeting greeting) {
-
+        log.debug("write greeting with id: " + greeting.getId());
     }
 }

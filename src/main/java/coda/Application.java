@@ -1,18 +1,28 @@
 package coda;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 
-import java.util.Properties;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import coda.shared.logging.Logging;
+import coda.shared.properties.Properties;
+
 @SpringBootApplication
 public class Application {
+    @Autowired
+    private Properties properties;
+
+    @Autowired
+    private Logging log;
     
     private void startApplication(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -23,7 +33,7 @@ public class Application {
      */
     private void writePropertiesFile() {
         OutputStream propertiesOutputStream = null;
-        Properties properties = new Properties();
+        java.util.Properties properties = new java.util.Properties();
         
         properties.setProperty("mongo_Port", "27017");
 
@@ -37,21 +47,23 @@ public class Application {
                 propertiesOutputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            }                
+            } 
         }
     }
 
     /**
      *
      */
-    private void readPropertiesFiles() {
-        Properties properties = new Properties();
+    private void readPropertiesFile() {
+        log.debug("readProperties...");
+
+        java.util.Properties propertiesLoader = new java.util.Properties();
         InputStream propertiesInputStream = null;
 
         try {
             propertiesInputStream = new FileInputStream("config.properties");
 
-            properties.load(propertiesInputStream);
+            propertiesLoader.load(propertiesInputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -63,9 +75,10 @@ public class Application {
     public static void main(String[] args) {
         Application application = new Application();
 
+        application.readPropertiesFile();
+
         application.startApplication(args);
 
         application.writePropertiesFile();
-
     }
 }
