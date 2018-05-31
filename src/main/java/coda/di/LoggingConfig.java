@@ -7,10 +7,10 @@ import coda.shared.logging.Logging;
 
 @Configuration
 public class LoggingConfig {
-    private static Logging logging = new Logging();
+//    private static Logging logging = new Logging();
     @Bean 
     public Logging logging() {
-        return logging;
+        return new Logging();
     }
 }
 

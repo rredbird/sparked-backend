@@ -37,6 +37,9 @@ public class DataLayer {
 
         System.out.println(collection.count());
 
+        int port = properties.getMongoDatabasePort();
+
+
         Document doc = new Document("name", "MongoDB")
                 .append("type", "database")
                 .append("count", 1)
