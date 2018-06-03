@@ -9,7 +9,7 @@ import coda.database.DataLayer;
 public class DataLayerConfig {
     @Bean
     public DataLayer dataLayer() {
-        return new DataLayer();
+        return new DataLayer(); 
     }
 }
 

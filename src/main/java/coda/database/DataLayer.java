@@ -1,6 +1,7 @@
 package coda.database;
 
 import java.util.Arrays;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,36 +28,39 @@ public class DataLayer {
     @Autowired
     private Properties properties;
 
-    @Autowired Logging log;
+    @Autowired 
+    private Logging log;
 
     public DataLayer() {
-        mongoClient = new MongoClient("localhost", 27017);
+        System.out.println("DataLayer constructor");
+    }
+
+    public void initialize() {
+        log.debug("initialize datalayer");
+
+        mongoClient = new MongoClient("localhost", properties.getMongoDatabasePort());
 
         db = mongoClient.getDatabase("test");
+
+        writeTestDocument();
+    }
+    private void writeTestDocument() {
         MongoCollection<Document> collection = db.getCollection("test");
 
-        System.out.println(collection.count());
-
-        int port = properties.getMongoDatabasePort();
-
-
         Document doc = new Document("name", "MongoDB")
-                .append("type", "database")
-                .append("count", 1)
-                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
-                .append("info", new Document("x", 203).append("y", 102));
+                .append("type", "testentry...")
+                .append("timestamp", (new Date()).toString());
 
         collection.insertOne(doc);
 
-        System.out.println(collection.count());
     }
-
+    
     public Greeting readGreeting(long id) {
         log.debug("read greeting with id: " + id); 
         ++greetingCounter;
         return new Greeting(id, "Hello Coda, this is greeting number " + greetingCounter);
     }
     public void writeGreeting(Greeting greeting) {
-        log.debug("write greeting with id: " + greeting.getId());
+//        log.debug("write greeting with id: " + greeting.getId());
     }
 }

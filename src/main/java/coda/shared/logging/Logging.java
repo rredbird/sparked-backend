@@ -9,7 +9,12 @@ import org.springframework.stereotype.Component;
 
 @Component("logging")
 public class Logging {
-	public void debug(String message) {
+
+    public Logging() {
+        System.out.println("Logging constructor");
+    }
+
+    public void debug(String message) {
 		System.out.println(message);
 		return;
 	}
