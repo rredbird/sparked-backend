@@ -20,5 +20,14 @@ public class Properties {
     public int  getMongoDatabasePort() { return mongoDatabasePort; }
     public void setMongoDatabasePort(int port) { mongoDatabasePort = port; }
     public void setMongoDatabasePort(String port) { mongoDatabasePort = Integer.parseInt(port); }
+
+    public void loadPropertiesFrom(InputStream propertiesInputStream) {
+        java.util.Properties propertiesLoader = new java.util.Properties();
+
+        propertiesLoader.load(propertiesInputStream);
+
+        
+        properties.setMongoDatabasePort(27017);
+    }
 }
 

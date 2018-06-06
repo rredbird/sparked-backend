@@ -55,16 +55,8 @@ public class Coda {
      *
      */
     private void readPropertiesFile() {
-        log.debug("readProperties...");
-
-        java.util.Properties propertiesLoader = new java.util.Properties();
-        InputStream propertiesInputStream = null;
-
-        properties.setMongoDatabasePort(27017);
         try {
-            propertiesInputStream = new FileInputStream("config.properties");
-
-            propertiesLoader.load(propertiesInputStream);
+            properties.loadPropertiesFrom(new FileInputStream("config.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,15 +66,6 @@ public class Coda {
     public void OnStartup() {
         log.debug("OnStartup");
         this.readPropertiesFile();
-
-        log.debug("TEST");
-        log.debug("TEST");
-        log.debug("TEST");
-        log.debug("TEST");
-        log.debug("TEST");
-        log.debug("TEST");
-        log.debug("TEST");
-        log.debug("TEST");
     }
 
     @PreDestroy
