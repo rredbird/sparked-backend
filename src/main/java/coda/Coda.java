@@ -9,6 +9,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -18,6 +19,7 @@ import java.io.IOException;
 
 import coda.shared.logging.Logging;
 import coda.shared.properties.Properties;
+import coda.database.DataLayer;
 
 @Component
 public class Coda {
@@ -27,7 +29,10 @@ public class Coda {
 
     @Autowired
     private Properties properties;
-    
+
+    @Autowired
+    private DataLayer dataLayer;
+
     /**
      *
      */
@@ -35,7 +40,7 @@ public class Coda {
     OutputStream propertiesOutputStream = null;
         java.util.Properties properties = new java.util.Properties();
         
-        properties.setProperty("mongo_Port", "27017");
+        properties.setProperty("mongo_Port", "32768");
 
         try {
             propertiesOutputStream = new FileOutputStream("config.properties");
@@ -57,6 +62,7 @@ public class Coda {
     private void readPropertiesFile() {
         try {
             properties.loadPropertiesFrom(new FileInputStream("config.properties"));
+            log.debug("readProperties...");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,6 +72,8 @@ public class Coda {
     public void OnStartup() {
         log.debug("OnStartup");
         this.readPropertiesFile();
+        this.dataLayer.initialize();
+        log.debug("TEST");
     }
 
     @PreDestroy
