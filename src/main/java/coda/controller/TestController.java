@@ -9,6 +9,25 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.IOException;
+//import java.utit.stream.Collectors;
+
 import coda.shared.dto.Greeting;
 import coda.database.DataLayer;
 import coda.shared.logging.Logging;
@@ -31,5 +50,11 @@ public class TestController {
         log.debug("Send greeting to: " + name);
         dataLayer.writeGreeting(new Greeting(0, "Hello Coda"));
         return dataLayer.readGreeting(0);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/upload")
+    public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+        log.debug(file.getOriginalFilename());
     }
 }
