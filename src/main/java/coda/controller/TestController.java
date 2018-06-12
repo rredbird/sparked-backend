@@ -30,6 +30,7 @@ import java.io.IOException;
 
 import coda.shared.dto.Greeting;
 import coda.database.DataLayer;
+import coda.kafka.KafkaConnector;
 import coda.shared.logging.Logging;
 
 @RestController
@@ -40,6 +41,9 @@ public class TestController {
 
     @Autowired
     private Logging log;
+
+    @Autowired
+    private KafkaConnector kafkaConnector;
 
     public TestController() {
     }
@@ -57,4 +61,16 @@ public class TestController {
     public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
         log.debug(file.getOriginalFilename());
     }
+
+//    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/greeting/kafkaTest")
+    public void kafkaTest() {
+        log.debug("KAFKATEST");
+        log.debug("KAFKATEST");
+        log.debug("KAFKATEST");
+        log.debug("KAFKATEST");
+        kafkaConnector.initialize();
+        kafkaConnector.runProducerTestmessage();
+    }
+
 }
