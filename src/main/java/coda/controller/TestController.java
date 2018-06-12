@@ -62,15 +62,17 @@ public class TestController {
         log.debug(file.getOriginalFilename());
     }
 
-//    @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/greeting/kafkaTest")
-    public void kafkaTest() {
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/kafkaTest")
+    public String kafkaTest() {
         log.debug("KAFKATEST");
         log.debug("KAFKATEST");
         log.debug("KAFKATEST");
         log.debug("KAFKATEST");
         kafkaConnector.initialize();
         kafkaConnector.runProducerTestmessage();
+
+        return "done";
     }
 
 }
