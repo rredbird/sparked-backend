@@ -5,6 +5,8 @@ public class Classifier {
     private final String description;
 
     public Classifier(String json) {
+        id = "0";
+        description = "";
     }
 
     public String getId() {

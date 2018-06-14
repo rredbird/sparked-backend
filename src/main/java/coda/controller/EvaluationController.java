@@ -47,7 +47,8 @@ public class EvaluationController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/classifiers")
-    public Classifier[] classifiers(@RequestParam(value="name", defaultValue="World") String name) {
+    public Classifier[] classifiers() {
+        return evaluationService.getClassifiers();
     }
 }
 

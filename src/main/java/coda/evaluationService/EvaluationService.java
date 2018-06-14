@@ -2,6 +2,11 @@ package coda.evaluationService;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.io.IOException;
+import java.io.File;
+
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,6 +19,7 @@ import org.bson.Document;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ResourceUtils;
 
 import coda.shared.dto.Classifier;
 import coda.shared.dto.Dataset;
@@ -31,6 +37,7 @@ public class EvaluationService {
     private Logging log;
 
     public Classifier[] getClassifiers() {
+        log.debug(loadClassifierExample());
         return null;
     }
 
@@ -45,5 +52,23 @@ public class EvaluationService {
     public Dataset[] getDatasets() {
         return null;
     }
+
+    private String loadClassifierExample() {
+        String classifiersJson = null;
+        try {
+            // FIXME
+            File file = ResourceUtils.getFile("classpath:resources/classifiers.json");
+            
+            if(file.exists()) {
+                classifiersJson = new String(Files.readAllBytes(file.toPath()));
+            } else {
+                log.debug("File not found");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return classifiersJson;
+    }
 }
+
 

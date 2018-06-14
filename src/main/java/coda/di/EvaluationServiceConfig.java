@@ -3,7 +3,7 @@ package coda.di;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import coda.EvaluationService.EvaluationService;
+import coda.evaluationService.EvaluationService;
 
 @Configuration
 public class EvaluationServiceConfig {
