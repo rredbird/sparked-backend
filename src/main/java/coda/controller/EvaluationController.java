@@ -1,5 +1,7 @@
 package coda.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import coda.shared.dto.Classifier;
+import coda.shared.dto.*;
 import coda.database.DataLayer;
 import coda.evaluationService.EvaluationService;
 import coda.shared.logging.Logging;
@@ -47,8 +49,26 @@ public class EvaluationController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/classifiers")
-    public Classifier[] classifiers() {
-        return evaluationService.getClassifiers();
+    public List<Classifier> classifiers() {
+        return evaluationService.getClassifiers().getClassifiers();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/validationmethods")
+    public List<Validator> validationMethods() {
+        return evaluationService.getValidationMethods().getValidators();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/evaluationmetrics")
+    public List<EvaluationMetric> evaluationMetrics() {
+        return evaluationService.getEvaluationMetrics().getMetrics();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/datasets")
+    public List<Dataset> datasets() {
+        return evaluationService.getDatasets().getDatasets();
     }
 }
 

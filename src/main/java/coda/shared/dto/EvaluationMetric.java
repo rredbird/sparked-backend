@@ -1,14 +1,19 @@
 package coda.shared.dto;
 
 public class EvaluationMetric {
-    private final String id;
+    private String id;
+    private Boolean highValueBetter;
 
-    public EvaluationMetric(String json) {
-        id = "0";
+    public EvaluationMetric() {
+        id = "";
+        highValueBetter = true;
     }
-
-    public String getId() {
-        return id;
-    }
+    
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+    
+    public Boolean getHighValueBetter() { return highValueBetter; }
+    public void setHighValueBetter(Boolean highValueBetter) { this.highValueBetter = highValueBetter; }
 }
+
 
