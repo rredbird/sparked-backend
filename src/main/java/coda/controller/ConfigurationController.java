@@ -29,46 +29,46 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import coda.shared.dto.*;
 import coda.database.DataLayer;
-import coda.evaluationService.EvaluationService;
+import coda.configurationService.IConfigurationService;
 import coda.shared.logging.Logging;
 
 @RestController
 @Component
-public class EvaluationController {
+public class ConfigurationController {
     @Autowired
     private DataLayer dataLayer;
 
     @Autowired
-    private EvaluationService evaluationService;
+    private IConfigurationService configurationService;
 
     @Autowired
     private Logging log;
 
-    public EvaluationController() {
+    public ConfigurationController() {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/classifiers")
     public List<Classifier> classifiers() {
-        return evaluationService.getClassifiers().getClassifiers();
+        return configurationService.getClassifiers().getClassifiers();
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/validationmethods")
     public List<Validator> validationMethods() {
-        return evaluationService.getValidationMethods().getValidators();
+        return configurationService.getValidationMethods().getValidators();
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/evaluationmetrics")
     public List<EvaluationMetric> evaluationMetrics() {
-        return evaluationService.getEvaluationMetrics().getMetrics();
+        return configurationService.getEvaluationMetrics().getMetrics();
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/datasets")
     public List<Dataset> datasets() {
-        return evaluationService.getDatasets().getDatasets();
+        return configurationService.getDatasets().getDatasets();
     }
 }
 
