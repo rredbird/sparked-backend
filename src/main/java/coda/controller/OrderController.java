@@ -1,5 +1,8 @@
 package coda.controller;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,53 +29,57 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-
-import coda.shared.dto.Greeting;
+import coda.shared.dto.*;
 import coda.database.DataLayer;
-import coda.kafka.KafkaConnector;
+import coda.configurationService.IConfigurationService;
+import coda.evaluationService.IEvaluationService;
 import coda.shared.logging.Logging;
+import coda.order.Order;
 
 @RestController
 @Component
-public class TestController {
+public class OrderController {
     @Autowired
     private DataLayer dataLayer;
 
     @Autowired
-    private Logging log;
+    private IEvaluationService evaluationService;
 
     @Autowired
-    private KafkaConnector kafkaConnector;
+    private Logging log;
 
-    public TestController() {
+    public OrderController() {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        log.debug("Send greeting to: " + name);
-        dataLayer.writeGreeting(new Greeting(0, "Hello Coda"));
-        return dataLayer.readGreeting(0);
+    @GetMapping("/orders")
+    public List<Order> getOrders() {
+        return dataLayer.getOrders();
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/upload")
-    public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-        log.debug(file.getOriginalFilename());
+    @GetMapping("/orders/{id}")
+    public OrderDto getOrder(@PathVariable UUID id) {
+        return dataLayer.getOrder(id).getDto();
     }
+
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/orders")
+    public OrderDto createOrder() {
+        Order order = new Order();
+
+        dataLayer.saveOrder(order);
+        
+        return order.getDto();
+    }
+   
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/kafkaTest")
-    public String kafkaTest() {
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        kafkaConnector.initialize();
-        kafkaConnector.runProducerTestmessage();
-
-        return "done";
+    @PutMapping("/orders")
+    public void editOrder(UUID id) {
+        return;
     }
-
 }
+
+

@@ -37,9 +37,6 @@ import coda.shared.properties.Properties;
 import coda.shared.logging.Logging;
 
 public class ConfigurationServiceMock implements IConfigurationService {
-    @Autowired
-    private Properties properties;
-
     @Autowired 
     private Logging log;
 

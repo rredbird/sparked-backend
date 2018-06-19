@@ -1,5 +1,7 @@
 package coda.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,53 +27,31 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-
-import coda.shared.dto.Greeting;
+import coda.shared.dto.*;
 import coda.database.DataLayer;
-import coda.kafka.KafkaConnector;
+import coda.configurationService.IConfigurationService;
 import coda.shared.logging.Logging;
 
 @RestController
 @Component
-public class TestController {
+public class EvaluationController {
     @Autowired
-    private DataLayer dataLayer;
+    private IEvaluationService evaluationService;
+
+    @Autowired
+    private IConfigurationService configurationService;
 
     @Autowired
     private Logging log;
 
-    @Autowired
-    private KafkaConnector kafkaConnector;
-
-    public TestController() {
+    public ConfigurationController() {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        log.debug("Send greeting to: " + name);
-        dataLayer.writeGreeting(new Greeting(0, "Hello Coda"));
-        return dataLayer.readGreeting(0);
+    @GetMapping("/classifiers")
+    public List<Classifier> classifiers() {
+        return configurationService.getClassifiers().getClassifiers();
     }
-
-    @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/upload")
-    public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-        log.debug(file.getOriginalFilename());
-    }
-
-    @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/kafkaTest")
-    public String kafkaTest() {
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        kafkaConnector.initialize();
-        kafkaConnector.runProducerTestmessage();
-
-        return "done";
-    }
-
 }
+
+
