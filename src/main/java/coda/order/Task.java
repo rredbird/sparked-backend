@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.shared.logging.Logging;
+import coda.shared.Status;
 
 public class Task {
     @Autowired
@@ -15,12 +16,38 @@ public class Task {
     private UUID id;
     private Order order;
 
+    private Status status;
+
     public Task(Order order) {
         id = UUID.randomUUID();
         this.order = order;
     }
 
     public UUID getId() { return id; }
+
+    public Boolean isRunning() {
+        return status == Status.RUNNING;
+    }
+    
+    public Boolean isWaiting() {
+        return status == Status.WAITING;
+    }
+
+    public Boolean isFinished() {
+        return status == Status.FINISHED;
+    }
+    
+    public Boolean isPaused() {
+        return status == Status.PAUSED;
+    }
+
+    public void pause() {
+        status = Status.PAUSED;
+    }
+
+    public void carryOn() {
+        status = Status.WAITING;
+    }
 }
 
 

@@ -41,5 +41,34 @@ public class Order {
 
         return dto;
     }
+
+    public String pause() {
+        for (Task task: tasks) {
+            if(task.isRunning() || task.isFinished()) {
+                return "Started orders may not be paused.";
+            }
+            if(task.isPaused()) {
+                return "Order is already paused.";
+            }
+        }
+        for (Task task: tasks) {
+            task.pause();
+        }
+        return "OK";
+    }
+    
+    public String carryOn() {
+        for (Task task: tasks) {
+            if(task.isPaused()) {
+                for (Task t: tasks) {
+                    t.carryOn();
+                }
+                return "OK";
+            } else {
+                return "Order is not paused.";
+            }
+        }
+        return "OK";
+    }
 }
 

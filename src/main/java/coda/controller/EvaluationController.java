@@ -29,7 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import coda.shared.dto.*;
 import coda.database.DataLayer;
-import coda.configurationService.IConfigurationService;
+import coda.evaluationService.IEvaluationService;
 import coda.shared.logging.Logging;
 
 @RestController
@@ -39,18 +39,15 @@ public class EvaluationController {
     private IEvaluationService evaluationService;
 
     @Autowired
-    private IConfigurationService configurationService;
-
-    @Autowired
     private Logging log;
 
-    public ConfigurationController() {
+    public EvaluationController() {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/classifiers")
-    public List<Classifier> classifiers() {
-        return configurationService.getClassifiers().getClassifiers();
+    @GetMapping("/evaluation")
+    public String evaluation() {
+        return "";
     }
 }
 
