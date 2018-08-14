@@ -30,21 +30,21 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import coda.shared.dto.*;
 import coda.database.DataLayer;
 import coda.evaluationService.IEvaluationService;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 
 @RestController
 @Component
+@CrossOrigin(origins = "http://localhost:4200")
 public class EvaluationController {
     @Autowired
     private IEvaluationService evaluationService;
 
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     public EvaluationController() {
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/evaluation")
     public String evaluation() {
         return "";

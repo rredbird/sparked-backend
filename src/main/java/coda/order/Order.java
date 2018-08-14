@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import coda.server.SparkServer;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 import coda.shared.dto.OrderDto;
 
 @JsonIgnoreProperties({"_id"})
 public class Order {
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     private List<Task> tasks;
     private UUID id;

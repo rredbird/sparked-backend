@@ -9,11 +9,11 @@ import coda.shared.dto.Datasets;
 import coda.shared.dto.EvaluationMetrics;
 import coda.shared.dto.ValidationMethods;
 import coda.shared.properties.Properties;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 
 public class EvaluationServiceMock implements IEvaluationService {
     @Autowired
-    private Logging log;
+    private ILogging log;
     
     public void RunTask(UUID taskId) {
     }

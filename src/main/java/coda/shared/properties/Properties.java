@@ -15,14 +15,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 
 @Component("properties")
 public class Properties {
     private int mongoDatabasePort = 27017;
 
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     public int  getMongoDatabasePort() {
         log.debug("get mongo database port");

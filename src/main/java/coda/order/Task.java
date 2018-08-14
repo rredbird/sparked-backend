@@ -6,12 +6,12 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 import coda.shared.Status;
 
 public class Task {
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     private UUID id;
     private Order order;

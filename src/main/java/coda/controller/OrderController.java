@@ -34,11 +34,12 @@ import coda.shared.dto.*;
 import coda.database.DataLayer;
 import coda.configurationService.IConfigurationService;
 import coda.evaluationService.IEvaluationService;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 import coda.order.Order;
 
 @RestController
 @Component
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderController {
     @Autowired
     private DataLayer dataLayer;
@@ -47,25 +48,21 @@ public class OrderController {
     private IEvaluationService evaluationService;
 
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     public OrderController() {
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/orders")
     public List<Order> getOrders() {
         return dataLayer.getOrders();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/orders/{id}")
     public OrderDto getOrder(@PathVariable UUID id) {
         return dataLayer.getOrder(id).getDto();
     }
 
-    
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/orders")
     public OrderDto createOrder() {
         Order order = new Order();
@@ -74,25 +71,20 @@ public class OrderController {
         
         return order.getDto();
     }
-   
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/orders/{id}")
     public void editOrder(@PathVariable UUID id) {
         return;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PatchMapping("/orders/{id}/pause")
     public String pauseOrder(@PathVariable UUID id) {
         return dataLayer.getOrder(id).pause();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
     @PatchMapping("/orders/{id}/continue")
     public String continueOrder(@PathVariable UUID id) {
         return dataLayer.getOrder(id).carryOn();
     }
 }
-
 

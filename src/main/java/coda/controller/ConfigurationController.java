@@ -30,10 +30,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import coda.shared.dto.*;
 import coda.database.DataLayer;
 import coda.configurationService.IConfigurationService;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 
 @RestController
 @Component
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConfigurationController {
     @Autowired
     private DataLayer dataLayer;
@@ -42,33 +43,28 @@ public class ConfigurationController {
     private IConfigurationService configurationService;
 
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     public ConfigurationController() {
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/classifiers")
     public List<Classifier> classifiers() {
         return configurationService.getClassifiers().getClassifiers();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/validationmethods")
     public List<Validator> validationMethods() {
         return configurationService.getValidationMethods().getValidators();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/evaluationmetrics")
     public List<EvaluationMetric> evaluationMetrics() {
         return configurationService.getEvaluationMetrics().getMetrics();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/datasets")
     public List<Dataset> datasets() {
         return configurationService.getDatasets().getDatasets();
     }
 }
-
