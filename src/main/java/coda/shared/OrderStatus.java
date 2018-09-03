@@ -1,6 +1,6 @@
 package coda.shared;
 
-public enum Status {
+public enum OrderStatus {
     WAITING, PAUSED, RUNNING, FINISHED
 }
 

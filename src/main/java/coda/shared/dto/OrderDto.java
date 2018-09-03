@@ -1,11 +1,13 @@
 package coda.shared.dto;
 
-import java.util.Date;
 import java.util.UUID;
+
+import coda.shared.OrderStatus;
 
 public class OrderDto {
     private UUID id;
     private String name;
+    private OrderStatus status;
 
     public OrderDto() {
     }
@@ -15,4 +17,7 @@ public class OrderDto {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+
+    public String getStatus() { return this.status.toString(); }
+    public void setStatus(String status) { this.status = OrderStatus.valueOf(status); }
 }
