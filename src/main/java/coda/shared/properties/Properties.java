@@ -25,7 +25,6 @@ public class Properties {
     private Logging log;
 
     public int  getMongoDatabasePort() {
-        log.debug("get mongo database port");
         log.debug("get mongo port: " + mongoDatabasePort);
         return mongoDatabasePort; 
     }
