@@ -14,14 +14,14 @@ import org.springframework.stereotype.Component;
 
 import java.lang.Exception;
 
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 
 
 
 @Component("kafkaConnector")
 public class KafkaConnector {
     @Autowired 
-    private Logging log;
+    private ILogging log;
 
     @Autowired 
     private coda.shared.properties.Properties properties;

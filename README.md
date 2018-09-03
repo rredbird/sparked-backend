@@ -39,4 +39,7 @@ Start project with "./gradlew run"
 
     - if mongo connection errors occure, check if mongo is running and the correct port is accessible. Restarting mongo docker image (and possibly docker) may help.
 
+# Swagger UI documentation
 
+You can find the swagger documentation here: http://localhost:8080/swagger-ui.html 
+The Coda Backend must run to access the swagger ui.

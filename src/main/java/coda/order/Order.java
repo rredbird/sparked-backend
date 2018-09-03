@@ -9,17 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import coda.server.SparkServer;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
+import coda.shared.OrderStatus;
 import coda.shared.dto.OrderDto;
 
 @JsonIgnoreProperties({"_id"})
 public class Order {
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     private List<Task> tasks;
     private UUID id;
     private SparkServer server;
+    private String name;
+    private OrderStatus orderStatus; 
 
     public Order() {
         tasks = new LinkedList<Task>();
@@ -38,6 +41,8 @@ public class Order {
         OrderDto dto = new OrderDto();
         
         dto.setId(this.id);
+        dto.setName(this.name);
+        dto.setStatus(this.orderStatus == null ? OrderStatus.WAITING.toString() : this.orderStatus.toString());
 
         return dto;
     }
@@ -70,5 +75,11 @@ public class Order {
         }
         return "OK";
     }
+
+    public void setName(String name) { this.name = name; }
+    public String getName() { return this.name; }
+    
+    public void setOrderStatus(String orderStatus) { this.orderStatus = Enum.valueOf(OrderStatus.class, orderStatus); }
+    public OrderStatus getOrderStatus() { return this.orderStatus; }
 }
 

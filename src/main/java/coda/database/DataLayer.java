@@ -34,7 +34,7 @@ import org.springframework.stereotype.Component;
 
 import coda.shared.dto.Greeting;
 import coda.shared.properties.Properties;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 import coda.shared.dto.OrderDto;
 import coda.order.Order;
 
@@ -49,7 +49,7 @@ public class DataLayer {
     private Properties properties;
 
     @Autowired 
-    private Logging log;
+    private ILogging log;
 
     public DataLayer() {
         System.out.println("DataLayer constructor");
