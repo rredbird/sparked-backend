@@ -37,17 +37,14 @@ dependencies {
     compile('io.springfox:springfox-swagger2:2.9.2')
     compile('io.springfox:springfox-data-rest:2.9.2')
     compile('io.springfox:springfox-swagger-ui:2.9.2')
+    compile('io.springfox.ui:springfox-swagger-ui-rfc6570:1.0.0')
     compile (
         [group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.0'],
         [group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.0'],
         [group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0']
     )
-<<<<<<< HEAD
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.1'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
-=======
-    compile('io.springfox:springfox-swagger2:2.9.2')
-    compile('io.springfox.ui:springfox-swagger-ui-rfc6570:1.0.0')
->>>>>>> 92b37bd6a6d5375b71b98df2ff545ee90fbbe972
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

@@ -1,29 +1,21 @@
 package coda.shared.properties;
 
-import java.util.Arrays;
-
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.bson.Document;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-
 import coda.shared.logging.ILogging;
 
 @Component("properties")
 public class Properties {
     private int mongoDatabasePort = 27017;
+    private String mongoDatabaseIP = "127.0.0.1";
+    private String mongoDatabaseName = "coda_db";
 
     @Autowired
     private ILogging log;
 
+
+
+    // --- Port ---
     public int  getMongoDatabasePort() {
         log.debug("get mongo port: " + mongoDatabasePort);
         return mongoDatabasePort; 
@@ -39,9 +31,35 @@ public class Properties {
         setMongoDatabasePort(Integer.parseInt(port));
     }
 
+
+    // --- IP ---
+    public String getMongoDatabaseIP() {
+        log.debug("get mongo ip: " + mongoDatabaseIP);
+        return mongoDatabaseIP;
+    }
+
+    public void setMongoDatabaseIP(String ip) {
+        mongoDatabaseIP = ip;
+    }
+
+
+    // --- Name ---
+    public String getMongoDatabaseName() {
+        log.debug("get mongo database name: " + mongoDatabaseName);
+        return mongoDatabaseName;
+    }
+
+    public void setMongoDatabaseName(String name) {
+        mongoDatabaseName = name;
+    }
+
+
+
     public void load(java.util.Properties properties) {
         log.debug("load properties"); 
         setMongoDatabasePort(properties.getProperty("mongo_Port"));
+        setMongoDatabaseIP(properties.getProperty("mongo_IP"));
+        setMongoDatabaseName(properties.getProperty("mongo_Name"));
     }
 }
 
