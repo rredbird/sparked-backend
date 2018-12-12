@@ -29,26 +29,42 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import coda.shared.dto.*;
 import coda.database.DataLayer;
-import coda.evaluationService.IEvaluationService;
+import coda.configurationService.IConfigurationService;
 import coda.shared.logging.ILogging;
 
 @RestController
 @Component
 @CrossOrigin(origins = "http://localhost:4200")
-public class EvaluationController {
+public class ConfigurationController {
     @Autowired
-    private IEvaluationService evaluationService;
+    private DataLayer dataLayer;
+
+    @Autowired
+    private IConfigurationService configurationService;
 
     @Autowired
     private ILogging log;
 
-    public EvaluationController() {
+    public ConfigurationController() {
     }
 
-    @GetMapping("/evaluation")
-    public String evaluation() {
-        return "";
+    @GetMapping("/classifiers")
+    public List<Classifier> classifiers() {
+        return configurationService.getClassifiers().getClassifiers();
+    }
+
+    @GetMapping("/validationmethods")
+    public List<Validator> validationMethods() {
+        return configurationService.getValidationMethods().getValidators();
+    }
+
+    @GetMapping("/evaluationmetrics")
+    public List<EvaluationMetric> evaluationMetrics() {
+        return configurationService.getEvaluationMetrics().getMetrics();
+    }
+
+    @GetMapping("/datasets")
+    public List<Dataset> datasets() {
+        return configurationService.getDatasets().getDatasets();
     }
 }
-
-

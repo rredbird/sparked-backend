@@ -17,7 +17,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
 
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 import coda.shared.properties.Properties;
 import coda.database.DataLayer;
 
@@ -25,7 +25,7 @@ import coda.database.DataLayer;
 public class Coda {
 
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     @Autowired
     private Properties properties;
@@ -37,10 +37,11 @@ public class Coda {
      *
      */
     private void writePropertiesFile() {
-    OutputStream propertiesOutputStream = null;
+        OutputStream propertiesOutputStream = null;
         java.util.Properties properties = new java.util.Properties();
         
-        properties.setProperty("mongo_Port", "32768");
+        properties.setProperty("mongo_Port", "27017");
+        properties.setProperty("mongo_IP", "127.0.0.1");
 
         try {
             propertiesOutputStream = new FileOutputStream("config.properties");
@@ -77,10 +78,8 @@ public class Coda {
 
     @PostConstruct
     public void OnStartup() {
-        log.debug("OnStartup");
         this.readPropertiesFile();
         this.dataLayer.initialize();
-        log.debug("TEST");
     }
 
     @PreDestroy

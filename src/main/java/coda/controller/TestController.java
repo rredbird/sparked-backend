@@ -26,21 +26,21 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-//import java.utit.stream.Collectors;
 
 import coda.shared.dto.Greeting;
 import coda.database.DataLayer;
 import coda.kafka.KafkaConnector;
-import coda.shared.logging.Logging;
+import coda.shared.logging.ILogging;
 
 @RestController
 @Component
+@CrossOrigin(origins = "http://localhost:4200")
 public class TestController {
     @Autowired
     private DataLayer dataLayer;
 
     @Autowired
-    private Logging log;
+    private ILogging log;
 
     @Autowired
     private KafkaConnector kafkaConnector;
@@ -48,7 +48,6 @@ public class TestController {
     public TestController() {
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
         log.debug("Send greeting to: " + name);
@@ -56,13 +55,11 @@ public class TestController {
         return dataLayer.readGreeting(0);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/upload")
     public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
         log.debug(file.getOriginalFilename());
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/kafkaTest")
     public String kafkaTest() {
         log.debug("KAFKATEST");
