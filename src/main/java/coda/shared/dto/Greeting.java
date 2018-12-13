@@ -1,16 +1,19 @@
 package coda.shared.dto;
 
-public class Greeting {
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Greeting extends ResourceSupport {
     private final long id;
     private final String content;
 
-    public Greeting(long id, String content) {
-        this.id = id;
+    
+    @JsonCreator
+    public Greeting(@JsonProperty("content") String content, long id) {
         this.content = content;
-    }
-
-    public long getId() {
-        return id;
+        this.id = id;
     }
 
     public String getContent() {

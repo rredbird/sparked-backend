@@ -140,7 +140,7 @@ public class DataLayer {
     public Greeting readGreeting(long id) {
         log.debug("read greeting with id: " + id); 
         ++greetingCounter;
-        return new Greeting(id, "Hello Coda, this is greeting number " + greetingCounter);
+        return new Greeting("Hello Coda, this is greeting number " + greetingCounter, id);
     }
     public void writeGreeting(Greeting greeting) {
 //        log.debug("write greeting with id: " + greeting.getId());

@@ -1,5 +1,8 @@
 package coda.controller;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +23,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,62 +33,63 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-
-import coda.shared.dto.Greeting;
+import coda.shared.dto.*;
 import coda.database.DataLayer;
-import coda.kafka.KafkaConnector;
+import coda.configurationService.IConfigurationService;
+import coda.evaluationService.IEvaluationService;
 import coda.shared.logging.ILogging;
+import coda.order.Order;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
 @Component
 @CrossOrigin(origins = "http://localhost:4200")
-public class TestController {
+public class SystemConfigurationController {
     @Autowired
     private DataLayer dataLayer;
 
     @Autowired
     private ILogging log;
 
-    @Autowired
-    private KafkaConnector kafkaConnector;
-
-    public TestController() {
+    public SystemConfigurationController() {
     }
 
-    @GetMapping("/greeting")
-    public HttpEntity<Greeting> greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        log.debug("Send greeting to: " + name);
-        dataLayer.writeGreeting(new Greeting("Hello Coda", 0));
-        Greeting greeting = dataLayer.readGreeting(0);
-        greeting.add(linkTo(methodOn(TestController.class).greeting(name)).withSelfRel());
-        greeting.add(linkTo(methodOn(TestController.class).heatoas()).withRel("Hateoas"));
+    @GetMapping("/database")
+    public HttpEntity<SystemConfigurationData> getDatabase() {
+        SystemConfigurationData systemConfigurationData = new SystemConfigurationData("hello", "world");
+        systemConfigurationData.add(linkTo(methodOn(SystemConfigurationController.class).getDatabase()).withSelfRel());
+
+        return new ResponseEntity<>(systemConfigurationData, HttpStatus.OK);
+    }
+
+    @GetMapping("/orders/{id}")
+    public OrderDto getOrder(@PathVariable UUID id) {
+        return dataLayer.getOrder(id).getDto();
+    }
+
+    @PostMapping("/orders")
+    public OrderDto createOrder(@RequestBody OrderDto orderData) {
+        Order order = new Order();
+
+        dataLayer.saveOrder(order);
         
-        return new ResponseEntity<>(greeting, HttpStatus.OK);
+        return order.getDto();
     }
 
-    @PostMapping("/upload")
-    public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-        log.debug(file.getOriginalFilename());
+    @PutMapping("/orders/{id}")
+    public void editOrder(@PathVariable UUID id) {
+        return;
     }
 
-    @GetMapping("/kafkaTest")
-    public String kafkaTest() {
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        log.debug("KAFKATEST");
-        kafkaConnector.initialize();
-        kafkaConnector.runProducerTestmessage();
-
-        return "done";
+    @PatchMapping("/orders/{id}/pause")
+    public String pauseOrder(@PathVariable UUID id) {
+        return dataLayer.getOrder(id).pause();
     }
-
-    @GetMapping("/hateoas")
-    public HttpEntity<String> heatoas() {
-        return new ResponseEntity<>("Hateoas", HttpStatus.OK);
+    
+    @PatchMapping("/orders/{id}/continue")
+    public String continueOrder(@PathVariable UUID id) {
+        return dataLayer.getOrder(id).carryOn();
     }
-
 }
+
