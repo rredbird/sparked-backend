@@ -4,12 +4,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import coda.shared.logging.ILogging;
 
-public class AccessLogInterceptor extends HandlerInterceptorAdapter {
+@Component
+public class AccessLogInterceptor implements HandlerInterceptor {
     @Autowired
     private ILogging log;
 
@@ -19,7 +21,7 @@ public class AccessLogInterceptor extends HandlerInterceptorAdapter {
             HttpServletResponse response,
             Object handler) throws Exception {
 
-        
+        log.debug("PREHANDLE");
         return true;
     }
 

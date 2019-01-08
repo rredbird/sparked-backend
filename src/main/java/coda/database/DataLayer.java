@@ -41,9 +41,7 @@ public class DataLayer {
     @Autowired 
     private ILogging log;
 
-    public DataLayer() {
-        System.out.println("DataLayer constructor");
-    }
+    public DataLayer() { }
 
     public void initialize() {
         log.debug("initialize datalayer");
