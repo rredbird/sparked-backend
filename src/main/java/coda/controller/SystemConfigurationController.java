@@ -38,18 +38,19 @@ import coda.database.DataLayer;
 import coda.configurationService.IConfigurationService;
 import coda.evaluationService.IEvaluationService;
 import coda.shared.logging.ILogging;
+import coda.shared.properties.Properties;
 import coda.order.Order;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
 @Component
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = Properties.CorsOriginAdress)
 public class SystemConfigurationController {
     @Autowired
     private DataLayer dataLayer;
 
-    @Autowired
+    @Autowired      
     private ILogging log;
 
     public SystemConfigurationController() {
@@ -63,33 +64,15 @@ public class SystemConfigurationController {
         return new ResponseEntity<>(systemConfigurationData, HttpStatus.OK);
     }
 
-    @GetMapping("/orders/{id}")
-    public OrderDto getOrder(@PathVariable UUID id) {
-        return dataLayer.getOrder(id).getDto();
-    }
-
-    @PostMapping("/orders")
-    public OrderDto createOrder(@RequestBody OrderDto orderData) {
-        Order order = new Order();
-
-        dataLayer.saveOrder(order);
+    @GetMapping("/start")
+    public HttpEntity<Greeting> start() {
+        dataLayer.writeGreeting(new Greeting("Hello Coda", 0));
+        Greeting greeting = dataLayer.readGreeting(0);
+        greeting.add(linkTo(methodOn(SystemConfigurationController.class).start()).withSelfRel());
+        greeting.add(linkTo(methodOn(OrderController.class).getOrders()).withRel("GetOrders"));
+        //greeting.add(linkTo(methodOn(EvaluationController.class).evaluation()).withRel("Evaluation"));
         
-        return order.getDto();
-    }
-
-    @PutMapping("/orders/{id}")
-    public void editOrder(@PathVariable UUID id) {
-        return;
-    }
-
-    @PatchMapping("/orders/{id}/pause")
-    public String pauseOrder(@PathVariable UUID id) {
-        return dataLayer.getOrder(id).pause();
-    }
-    
-    @PatchMapping("/orders/{id}/continue")
-    public String continueOrder(@PathVariable UUID id) {
-        return dataLayer.getOrder(id).carryOn();
+        return new ResponseEntity<>(greeting, HttpStatus.OK);
     }
 }
 

@@ -37,10 +37,11 @@ import coda.configurationService.IConfigurationService;
 import coda.evaluationService.IEvaluationService;
 import coda.shared.logging.ILogging;
 import coda.order.Order;
+import coda.shared.properties.Properties;
 
 @RestController
 @Component
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = Properties.CorsOriginAdress)
 public class OrderController {
     @Autowired
     private DataLayer dataLayer;
@@ -64,18 +65,25 @@ public class OrderController {
         return dataLayer.getOrder(id).getDto();
     }
 
-    @PostMapping("/orders")
+    @PostMapping("/orders/save")
     public OrderDto createOrder(@RequestBody OrderDto orderData) {
-        Order order = new Order();
+        Order order = dataLayer.getOrder(orderData.getId());
 
-        dataLayer.saveOrder(order);
+        if(order == null)
+        {
+            order = new Order();
+        }
         
+        order.loadFromDto(orderData);
+
         return order.getDto();
     }
 
-    @PutMapping("/orders/{id}")
-    public void editOrder(@PathVariable UUID id) {
-        return;
+    @GetMapping("/orders/new")
+    public OrderDto createOrder() {
+        Order order = new Order();
+
+        return order.getDto();
     }
 
     @PatchMapping("/orders/{id}/pause")

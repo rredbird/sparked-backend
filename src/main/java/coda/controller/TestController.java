@@ -1,5 +1,7 @@
 package coda.controller;
 
+import org.apache.commons.logging.*;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,14 +33,14 @@ import java.io.IOException;
 
 import coda.shared.dto.Greeting;
 import coda.database.DataLayer;
-import coda.kafka.KafkaConnector;
 import coda.shared.logging.ILogging;
+import coda.shared.properties.Properties;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
 @Component
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = Properties.CorsOriginAdress)
 public class TestController {
     @Autowired
     private DataLayer dataLayer;
@@ -46,21 +48,7 @@ public class TestController {
     @Autowired
     private ILogging log;
 
-    @Autowired
-    private KafkaConnector kafkaConnector;
-
     public TestController() {
-    }
-
-    @GetMapping("/greeting")
-    public HttpEntity<Greeting> greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        log.debug("Send greeting to: " + name);
-        dataLayer.writeGreeting(new Greeting("Hello Coda", 0));
-        Greeting greeting = dataLayer.readGreeting(0);
-        greeting.add(linkTo(methodOn(TestController.class).greeting(name)).withSelfRel());
-        greeting.add(linkTo(methodOn(TestController.class).heatoas()).withRel("Hateoas"));
-        
-        return new ResponseEntity<>(greeting, HttpStatus.OK);
     }
 
     @PostMapping("/upload")
@@ -74,14 +62,16 @@ public class TestController {
         log.debug("KAFKATEST");
         log.debug("KAFKATEST");
         log.debug("KAFKATEST");
-        kafkaConnector.initialize();
-        kafkaConnector.runProducerTestmessage();
 
         return "done";
     }
 
     @GetMapping("/hateoas")
     public HttpEntity<String> heatoas() {
+        Log logger = LogFactory.getLog(TestController.class);
+
+        logger.error("LOOOOL");
+        log.debug("HATEOAS");
         return new ResponseEntity<>("Hateoas", HttpStatus.OK);
     }
 

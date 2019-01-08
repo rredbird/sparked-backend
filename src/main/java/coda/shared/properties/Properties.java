@@ -1,15 +1,17 @@
 package coda.shared.properties;
 
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import coda.shared.logging.ILogging;
 
-@Component("properties")
 public class Properties {
+    public static final String CorsOriginAdress = "http://localhost:4200";
+    
     private int mongoDatabasePort = 27017;
     private String mongoDatabaseIP = "127.0.0.1";
     private String mongoDatabaseName = "coda_db";
-
+    
     @Autowired
     private ILogging log;
 

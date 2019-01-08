@@ -30,7 +30,6 @@ import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;
 import coda.order.Order;
 
-@Component("dataLayer")
 public class DataLayer {
     private int greetingCounter = 0;
     private MongoClient mongoClient;

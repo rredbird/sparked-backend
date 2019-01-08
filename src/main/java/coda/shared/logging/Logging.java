@@ -1,17 +1,37 @@
 package coda.shared.logging;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Logging implements ILogging {
+	Logger logger = LoggerFactory.getLogger(Logging.class);
 
     public Logging() {
+
     }
 
     @Override
+    public void trace(String message) {
+		logger.trace(message);
+	}
+
+	@Override
     public void debug(String message) {
-		System.out.println(message);
+		logger.debug(message);
+	}
+
+	@Override
+    public void info(String message) {
+		logger.info(message);
+	}
+
+	@Override
+    public void warn(String message) {
+		logger.warn(message);
 	}
 
 	@Override
 	public void error(String message) {
-		System.err.println(message);
+		logger.error(message);
 	}
 }

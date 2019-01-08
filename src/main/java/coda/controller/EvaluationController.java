@@ -31,10 +31,10 @@ import coda.shared.dto.*;
 import coda.database.DataLayer;
 import coda.evaluationService.IEvaluationService;
 import coda.shared.logging.ILogging;
+import coda.shared.properties.Properties;
 
 @RestController
-@Component
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = Properties.CorsOriginAdress)
 public class EvaluationController {
     @Autowired
     private IEvaluationService evaluationService;

@@ -31,10 +31,11 @@ import coda.shared.dto.*;
 import coda.database.DataLayer;
 import coda.configurationService.IConfigurationService;
 import coda.shared.logging.ILogging;
+import coda.shared.properties.Properties;
 
 @RestController
 @Component
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = Properties.CorsOriginAdress)
 public class ConfigurationController {
     @Autowired
     private DataLayer dataLayer;

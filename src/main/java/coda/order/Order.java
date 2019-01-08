@@ -46,6 +46,10 @@ public class Order {
 
         return dto;
     }
+    public void loadFromDto(OrderDto order) {
+        this.name = order.getName();
+        this.orderStatus = OrderStatus.valueOf(OrderStatus.class, order.getStatus());
+    }
 
     public String pause() {
         for (Task task: tasks) {
