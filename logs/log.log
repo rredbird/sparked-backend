@@ -1,384 +1,148 @@
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 21:48:39 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 21:49:04 [http-nio-8080-exec-2] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 21:49:04 [http-nio-8080-exec-2] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 21:52:36 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 21:52:37 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 21:52:51 [http-nio-8080-exec-2] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 21:52:51 [http-nio-8080-exec-2] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 21:57:01 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 21:57:02 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 21:59:57 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 21:59:59 [main] ERROR org.apache.catalina.util.LifecycleBase - File - Failed to start component [Connector[HTTP/1.1-8080]]
-org.apache.catalina.LifecycleException: Protocol handler start failed
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1001) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) [tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) [tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) [spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at coda.Application.main(Application.java:14) [main/:?]
-Caused by: java.net.BindException: Address already in use: bind
-	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
-	at sun.nio.ch.Net.bind(Net.java:461) ~[?:?]
-	at sun.nio.ch.Net.bind(Net.java:453) ~[?:?]
-	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:227) ~[?:?]
-	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:80) ~[?:?]
-	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:236) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1067) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1149) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:561) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	at org.apache.catalina.connector.Connector.startInternal(Connector.java:998) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
-	... 14 more
-2019-01-08 21:59:59 [main] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - File - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
-
-Action:
-
-Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
-
-2019-01-08 21:59:59 [main] DEBUG coda.shared.logging.Logging - File - OnShutdown
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:00:18 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:00:19 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:04:29 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:04:43 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:04:45 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:04:45 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:06:04 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:07:17 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:07:18 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:07:39 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:07:39 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:12:34 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:12:35 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:18:59 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:19:00 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:23:21 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:23:22 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:23:39 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:23:39 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:24:39 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:24:48 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:24:48 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:24:56 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:27:04 [main] ERROR org.springframework.boot.SpringApplication - File - Application run failed
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'coda': Unsatisfied dependency expressed through field 'dataLayer'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataLayer' defined in class path resource [coda/di/DataLayerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [coda.database.DataLayer]: Factory method 'dataLayer' threw exception; nested exception is java.lang.NullPointerException
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1378) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:575) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
-	at coda.Application.main(Application.java:14) [main/:?]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataLayer' defined in class path resource [coda/di/DataLayerConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [coda.database.DataLayer]: Factory method 'dataLayer' threw exception; nested exception is java.lang.NullPointerException
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1237) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	... 19 more
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [coda.database.DataLayer]: Factory method 'dataLayer' threw exception; nested exception is java.lang.NullPointerException
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1237) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	... 19 more
-Caused by: java.lang.NullPointerException
-	at coda.database.DataLayer.<init>(DataLayer.java:45) ~[main/:?]
-	at coda.di.DataLayerConfig.dataLayer(DataLayerConfig.java:12) ~[main/:?]
-	at coda.di.DataLayerConfig$$EnhancerBySpringCGLIB$$bac2fec4.CGLIB$dataLayer$0(<generated>) ~[main/:?]
-	at coda.di.DataLayerConfig$$EnhancerBySpringCGLIB$$bac2fec4$$FastClassBySpringCGLIB$$9d8cd132.invoke(<generated>) ~[main/:?]
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at coda.di.DataLayerConfig$$EnhancerBySpringCGLIB$$bac2fec4.dataLayer(<generated>) ~[main/:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
-	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
-	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
-	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1237) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1164) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
-	... 19 more
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:28:20 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:29:31 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:29:32 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:29:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:30:47 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:30:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:30:58 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:30:58 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:32:10 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:33:21 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:33:22 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:34:25 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:34:26 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:42:46 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:43:03 [http-nio-8080-exec-2] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:43:03 [http-nio-8080-exec-2] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:43:05 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:43:05 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:43:06 [http-nio-8080-exec-4] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:43:06 [http-nio-8080-exec-4] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:47:12 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:47:44 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:47:44 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:47:47 [http-nio-8080-exec-2] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:47:47 [http-nio-8080-exec-2] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:48:00 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:48:01 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:48:48 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:49:06 [http-nio-8080-exec-2] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:49:06 [http-nio-8080-exec-2] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:50:05 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:50:06 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:54:07 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:54:08 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:54:12 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:54:12 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:54:14 [http-nio-8080-exec-3] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:54:14 [http-nio-8080-exec-3] DEBUG coda.shared.logging.Logging - File - HATEOAS
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - readProperties...
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - load properties
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - set database port
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - 8080
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - initialize datalayer
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - get mongo ip: 40.68.62.58
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - get mongo port: 8080
-2019-01-08 22:55:36 [main] DEBUG coda.shared.logging.Logging - File - get mongo database name: coda_db
-2019-01-08 22:55:49 [http-nio-8080-exec-1] ERROR coda.controller.TestController - File - LOOOOL
-2019-01-08 22:55:49 [http-nio-8080-exec-1] DEBUG coda.shared.logging.Logging - File - HATEOAS
+2019-01-10 19:27:55.618 DEBUG - readProperties...
+2019-01-10 19:27:55.627 DEBUG - load properties
+2019-01-10 19:27:55.628 DEBUG - set database port
+2019-01-10 19:27:55.628 DEBUG - 8080
+2019-01-10 19:27:55.628 DEBUG - initialize datalayer
+2019-01-10 19:27:55.634 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:27:55.634 DEBUG - get mongo port: 8080
+2019-01-10 19:27:56.634 DEBUG - get mongo database name: coda_db
+2019-01-10 19:28:00.302 TRACE - Incoming Request: GET /selfTest
+2019-01-10 19:28:03.812 INFO  - Selftest is starting...
+2019-01-10 19:28:03.812 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:28:03.813 DEBUG - get mongo database name: coda_db
+2019-01-10 19:28:03.813 DEBUG - get mongo port: 8080
+2019-01-10 19:28:03.816 DEBUG - Save order ab9d0b1b-9c10-46fd-af8d-126b82728c38
+2019-01-10 19:28:45.898 DEBUG - readProperties...
+2019-01-10 19:28:45.904 DEBUG - load properties
+2019-01-10 19:28:45.905 DEBUG - set database port
+2019-01-10 19:28:45.905 DEBUG - 8080
+2019-01-10 19:28:45.905 DEBUG - initialize datalayer
+2019-01-10 19:28:45.909 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:28:45.909 DEBUG - get mongo port: 8080
+2019-01-10 19:28:46.497 DEBUG - get mongo database name: coda_db
+2019-01-10 19:29:10.569 TRACE - Incoming Request: GET /selfTest
+2019-01-10 19:29:13.583 INFO  - Selftest is starting...
+2019-01-10 19:29:13.584 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:29:13.584 DEBUG - get mongo database name: coda_db
+2019-01-10 19:29:13.584 DEBUG - get mongo port: 8080
+2019-01-10 19:29:13.588 DEBUG - Save order 5d531513-6d12-4a36-9750-abd92b5bd017
+2019-01-10 19:29:21.543 ERROR - Request with exception: GET /selfTest
+2019-01-10 19:29:21.544 ERROR - Request processing failed; nested exception is org.bson.codecs.configuration.CodecConfigurationException: Can't find a codec for class coda.shared.dto.OrderDto.
+2019-01-10 19:29:21.545 TRACE - org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1013)
+2019-01-10 19:29:21.546 TRACE - org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+2019-01-10 19:29:21.547 TRACE - javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+2019-01-10 19:29:21.547 TRACE - org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+2019-01-10 19:29:21.548 TRACE - javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+2019-01-10 19:29:21.548 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+2019-01-10 19:29:21.549 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:29:21.550 TRACE - org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+2019-01-10 19:29:21.550 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:29:21.551 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:29:21.552 TRACE - coda.shared.interceptors.ExceptionFilter.doFilter(ExceptionFilter.java:32)
+2019-01-10 19:29:21.552 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:29:21.553 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:29:21.553 TRACE - coda.shared.interceptors.AccessLogFilter.doFilter(AccessLogFilter.java:43)
+2019-01-10 19:29:21.554 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:29:21.554 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:29:21.555 TRACE - org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+2019-01-10 19:29:21.556 TRACE - org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2019-01-10 19:29:21.556 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:29:21.557 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:29:21.557 TRACE - org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+2019-01-10 19:29:21.558 TRACE - org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+2019-01-10 19:29:21.559 TRACE - org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+2019-01-10 19:29:21.560 TRACE - org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+2019-01-10 19:29:21.560 TRACE - org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+2019-01-10 19:29:21.561 TRACE - org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+2019-01-10 19:29:21.561 TRACE - org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+2019-01-10 19:29:21.562 TRACE - org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+2019-01-10 19:29:21.562 TRACE - org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+2019-01-10 19:29:21.563 TRACE - org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+2019-01-10 19:29:21.563 TRACE - org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+2019-01-10 19:29:21.564 TRACE - org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+2019-01-10 19:29:21.564 TRACE - java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+2019-01-10 19:29:21.565 TRACE - java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+2019-01-10 19:29:21.566 TRACE - org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+2019-01-10 19:29:21.566 TRACE - java.base/java.lang.Thread.run(Thread.java:834)
+2019-01-10 19:29:21.567 TRACE - Request took 10998ms to run.
+2019-01-10 19:30:52.660 TRACE - Incoming Request: GET /selfTest
+2019-01-10 19:30:54.571 INFO  - Selftest is starting...
+2019-01-10 19:30:54.571 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:30:54.572 DEBUG - get mongo database name: coda_db
+2019-01-10 19:30:54.573 DEBUG - get mongo port: 8080
+2019-01-10 19:30:54.577 DEBUG - Save order 8b585776-7d0b-43b7-91ad-ac9506f79b43
+2019-01-10 19:31:17.996 DEBUG - Save order 8b585776-7d0b-43b7-91ad-ac9506f79b43
+2019-01-10 19:31:19.762 DEBUG - Order 8b585776-7d0b-43b7-91ad-ac9506f79b43 saved.
+2019-01-10 19:31:25.854 DEBUG - { "_id" : { "$oid" : "5c378f77f0a98a5b241d476a" }, "order" : "{\"tasks\":[],\"id\":\"8b585776-7d0b-43b7-91ad-ac9506f79b43\",\"server\":null,\"name\":\"testorder\",\"orderStatus\":null,\"dto\":{\"id\":\"8b585776-7d0b-43b7-91ad-ac9506f79b43\",\"name\":\"testorder\",\"status\":\"WAITING\"}}" }
+2019-01-10 19:31:36.631 INFO  - Orders in dataLayer: 1
+2019-01-10 19:31:38.797 DEBUG - Datalayer get order 8b585776-7d0b-43b7-91ad-ac9506f79b43
+2019-01-10 19:31:38.989 ERROR - Request with exception: GET /selfTest
+2019-01-10 19:31:38.990 ERROR - Request processing failed; nested exception is java.lang.NullPointerException
+2019-01-10 19:31:38.991 TRACE - org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1013)
+2019-01-10 19:31:38.992 TRACE - org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+2019-01-10 19:31:38.993 TRACE - javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+2019-01-10 19:31:38.994 TRACE - org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+2019-01-10 19:31:38.995 TRACE - javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+2019-01-10 19:31:38.995 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+2019-01-10 19:31:38.996 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:31:38.996 TRACE - org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+2019-01-10 19:31:38.997 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:31:38.998 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:31:38.999 TRACE - coda.shared.interceptors.ExceptionFilter.doFilter(ExceptionFilter.java:32)
+2019-01-10 19:31:38.999 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:31:39.000 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:31:39.000 TRACE - coda.shared.interceptors.AccessLogFilter.doFilter(AccessLogFilter.java:43)
+2019-01-10 19:31:39.001 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:31:39.001 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:31:39.001 TRACE - org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+2019-01-10 19:31:39.002 TRACE - org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2019-01-10 19:31:39.002 TRACE - org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2019-01-10 19:31:39.003 TRACE - org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2019-01-10 19:31:39.003 TRACE - org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+2019-01-10 19:31:39.003 TRACE - org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+2019-01-10 19:31:39.004 TRACE - org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+2019-01-10 19:31:39.004 TRACE - org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+2019-01-10 19:31:39.004 TRACE - org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+2019-01-10 19:31:39.005 TRACE - org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+2019-01-10 19:31:39.005 TRACE - org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+2019-01-10 19:31:39.005 TRACE - org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+2019-01-10 19:31:39.006 TRACE - org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+2019-01-10 19:31:39.006 TRACE - org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791)
+2019-01-10 19:31:39.007 TRACE - org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417)
+2019-01-10 19:31:39.008 TRACE - org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+2019-01-10 19:31:39.008 TRACE - java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+2019-01-10 19:31:39.009 TRACE - java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+2019-01-10 19:31:39.009 TRACE - org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+2019-01-10 19:31:39.010 TRACE - java.base/java.lang.Thread.run(Thread.java:834)
+2019-01-10 19:31:39.011 TRACE - Request took 46351ms to run.
+2019-01-10 19:32:35.222 TRACE - Incoming Request: GET /selfTest
+2019-01-10 19:32:36.871 INFO  - Selftest is starting...
+2019-01-10 19:32:36.872 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:32:36.872 DEBUG - get mongo database name: coda_db
+2019-01-10 19:32:36.873 DEBUG - get mongo port: 8080
+2019-01-10 19:32:36.876 DEBUG - Save order 8e79e224-3cc9-429f-9bbc-3e76fda19fa4
+2019-01-10 19:32:38.344 DEBUG - Order 8e79e224-3cc9-429f-9bbc-3e76fda19fa4 saved.
+2019-01-10 19:34:51.579 DEBUG - { "_id" : { "$oid" : "5c378f77f0a98a5b241d476a" }, "order" : "{\"tasks\":[],\"id\":\"8b585776-7d0b-43b7-91ad-ac9506f79b43\",\"server\":null,\"name\":\"testorder\",\"orderStatus\":null,\"dto\":{\"id\":\"8b585776-7d0b-43b7-91ad-ac9506f79b43\",\"name\":\"testorder\",\"status\":\"WAITING\"}}" }
+2019-01-10 19:36:40.150 DEBUG - { "_id" : { "$oid" : "5c378fc6f0a98a5b241d476b" }, "order" : "{\"tasks\":[],\"id\":\"8e79e224-3cc9-429f-9bbc-3e76fda19fa4\",\"server\":null,\"name\":\"testorder\",\"orderStatus\":null,\"dto\":{\"id\":\"8e79e224-3cc9-429f-9bbc-3e76fda19fa4\",\"name\":\"testorder\",\"status\":\"WAITING\"}}" }
+2019-01-10 19:36:41.931 INFO  - Orders in dataLayer: 2
+2019-01-10 19:36:48.536 DEBUG - Datalayer get order 8e79e224-3cc9-429f-9bbc-3e76fda19fa4
+2019-01-10 19:37:23.779 DEBUG - readProperties...
+2019-01-10 19:37:23.786 DEBUG - load properties
+2019-01-10 19:37:23.786 DEBUG - set database port
+2019-01-10 19:37:23.786 DEBUG - 8080
+2019-01-10 19:37:23.786 DEBUG - initialize datalayer
+2019-01-10 19:37:23.807 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:37:23.807 DEBUG - get mongo port: 8080
+2019-01-10 19:37:24.480 DEBUG - get mongo database name: coda_db
+2019-01-10 19:37:39.098 TRACE - Incoming Request: GET /selfTest
+2019-01-10 19:37:42.124 INFO  - Selftest is starting...
+2019-01-10 19:37:42.124 DEBUG - get mongo ip: 40.68.62.58
+2019-01-10 19:37:42.124 DEBUG - get mongo database name: coda_db
+2019-01-10 19:37:42.124 DEBUG - get mongo port: 8080
+2019-01-10 19:37:42.127 DEBUG - Save order 78bfd00d-61c6-4a2f-a627-152f12161868
+2019-01-10 19:37:44.542 DEBUG - Order 78bfd00d-61c6-4a2f-a627-152f12161868 saved.
+2019-01-10 19:37:46.247 DEBUG - { "_id" : { "$oid" : "5c378f77f0a98a5b241d476a" }, "order" : "{\"tasks\":[],\"id\":\"8b585776-7d0b-43b7-91ad-ac9506f79b43\",\"server\":null,\"name\":\"testorder\",\"orderStatus\":null,\"dto\":{\"id\":\"8b585776-7d0b-43b7-91ad-ac9506f79b43\",\"name\":\"testorder\",\"status\":\"WAITING\"}}" }
+2019-01-10 19:37:47.956 DEBUG - { "_id" : { "$oid" : "5c378fc6f0a98a5b241d476b" }, "order" : "{\"tasks\":[],\"id\":\"8e79e224-3cc9-429f-9bbc-3e76fda19fa4\",\"server\":null,\"name\":\"testorder\",\"orderStatus\":null,\"dto\":{\"id\":\"8e79e224-3cc9-429f-9bbc-3e76fda19fa4\",\"name\":\"testorder\",\"status\":\"WAITING\"}}" }
+2019-01-10 19:37:49.030 DEBUG - { "_id" : { "$oid" : "5c3790f8f0a98a3704aeff64" }, "order" : "{\"tasks\":[],\"id\":\"78bfd00d-61c6-4a2f-a627-152f12161868\",\"server\":null,\"name\":\"testorder\",\"orderStatus\":null,\"dto\":{\"id\":\"78bfd00d-61c6-4a2f-a627-152f12161868\",\"name\":\"testorder\",\"status\":\"WAITING\"}}" }
+2019-01-10 19:38:02.334 INFO  - Orders in dataLayer: 3
+2019-01-10 19:38:21.694 DEBUG - Datalayer get order 78bfd00d-61c6-4a2f-a627-152f12161868

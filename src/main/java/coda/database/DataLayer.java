@@ -13,19 +13,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mongodb.MongoClient;
 import com.mongodb.Block;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.util.JSON;
+
 import static com.mongodb.client.model.Filters.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 
 import org.bson.Document;
-import org.springframework.stereotype.Component;
 
 import coda.shared.dto.Greeting;
+import coda.shared.dto.OrderDto;
 import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;
 import coda.order.Order;
@@ -38,7 +45,7 @@ public class DataLayer {
     @Autowired
     private Properties properties;
 
-    @Autowired 
+    @Autowired
     private ILogging log;
 
     public DataLayer() { }
@@ -49,8 +56,6 @@ public class DataLayer {
         mongoClient = new MongoClient(properties.getMongoDatabaseIP(), properties.getMongoDatabasePort());
 
         db = mongoClient.getDatabase(properties.getMongoDatabaseName());
-
-        writeTestDocument();
     }
     private void writeTestDocument() {
         MongoCollection<Document> collection = db.getCollection("test");
@@ -102,7 +107,9 @@ public class DataLayer {
 
         log.debug("Datalayer get order " + id);
 
-        String data = collection.find(eq("id", id.toString())).first().toJson();
+        FindIterable<Document> find = collection.find(eq("id", id.toString()));
+        Document first = find.first();
+        String data = first.toJson();
 
         log.debug(data);
 
@@ -127,9 +134,17 @@ public class DataLayer {
 
         MongoCollection<Document> collection = db.getCollection("orders");
 
-        Document doc = new Document("id", order.getId().toString());
 
-        collection.insertOne(doc);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String orderJson = "";
+        try {
+            orderJson = objectMapper.writeValueAsString(order);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.exception(jsonProcessingException);
+        }
+        DBObject orderDbObject = (DBObject)JSON.parse(orderJson);
+        // Document doc = new Document("order", orderJson);
+        // collection.insert(orderDbObject);
 
         log.debug("Order " + order.getId() + " saved.");
     }

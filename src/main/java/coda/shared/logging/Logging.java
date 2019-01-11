@@ -34,4 +34,12 @@ public class Logging implements ILogging {
 	public void error(String message) {
 		logger.error(message);
 	}
+
+	@Override
+	public void exception(Exception exception) {
+		logger.error(exception.getMessage());
+		for (StackTraceElement stackTraceElement : exception.getStackTrace()) {
+			logger.trace(stackTraceElement.toString());
+		}
+	}
 }

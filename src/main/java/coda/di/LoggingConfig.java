@@ -14,5 +14,3 @@ public class LoggingConfig {
         return new Logging();
     }
 }
-
-l
