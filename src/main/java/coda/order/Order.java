@@ -6,36 +6,27 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import coda.server.SparkServer;
 import coda.shared.logging.ILogging;
 import coda.shared.OrderStatus;
 import coda.shared.dto.OrderDto;
 
-@JsonIgnoreProperties({"_id"})
 public class Order {
     @Autowired
     private ILogging log;
 
     private List<Task> tasks;
     private UUID id;
-    private SparkServer server;
     private String name;
     private OrderStatus orderStatus; 
 
     public Order() {
         tasks = new LinkedList<Task>();
         id = UUID.randomUUID();
-        server = null;
     }
 
     public UUID getId() { return id; }
 
     public List<Task> getTasks() { return tasks; }
-
-    public SparkServer getServer() { return server; }
-    public void setServer(SparkServer server) { this.server = server; }
 
     public OrderDto getDto() {
         OrderDto dto = new OrderDto();
@@ -83,7 +74,13 @@ public class Order {
     public void setName(String name) { this.name = name; }
     public String getName() { return this.name; }
     
-    public void setOrderStatus(String orderStatus) { this.orderStatus = Enum.valueOf(OrderStatus.class, orderStatus); }
+    public void setOrderStatus(String orderStatus) { 
+        if (orderStatus == null) {
+            log.error("Tried to set null as Order Status for order: " + this.id.toString() + ". Ignored!");
+        } else {
+            this.orderStatus = Enum.valueOf(OrderStatus.class, orderStatus); 
+        }        
+    }
     public OrderStatus getOrderStatus() { return this.orderStatus; }
 }
 

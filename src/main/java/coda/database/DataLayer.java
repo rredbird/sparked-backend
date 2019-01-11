@@ -76,15 +76,14 @@ public class DataLayer {
         Block<Document> addToList = new Block<Document>() {
             @Override
             public void apply(final Document document) {
-                String data = document.toJson();
+                String orderJson = document.toJson();
 
-                log.debug(data);
-
-                Order order = null;
+                Order order = new Order();
+                OrderDto orderDto = null;
                 ObjectMapper mapper = new ObjectMapper();
 
                 try {
-                    order = mapper.readValue(data, Order.class);
+                    orderDto = mapper.readValue(orderJson, OrderDto.class);
                 } catch (JsonGenerationException e) {
                     e.printStackTrace();
                 } catch (JsonMappingException e) {
@@ -93,6 +92,7 @@ public class DataLayer {
                     e.printStackTrace();
                 }
         
+                order.loadFromDto(orderDto);
                 orders.add(order);        
             }
         };
@@ -107,21 +107,22 @@ public class DataLayer {
 
         log.debug("Datalayer get order " + id);
 
-        FindIterable<Document> find = collection.find(eq("id", id.toString()));
-        Document first = find.first();
-        String data = first.toJson();
+        String data = collection.find(eq("id", id.toString())).first().toJson();
 
         log.debug(data);
 
-        Order order = null;
+        Order order = new Order();
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            order = mapper.readValue(data, Order.class);
+            log.trace("Loading order: " + data);
+            OrderDto orderDto = mapper.readValue(data, OrderDto.class);
+            order.loadFromDto(orderDto);
+            
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
-             e.printStackTrace();       
+            e.printStackTrace();       
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,21 +131,18 @@ public class DataLayer {
     }
     
     public void saveOrder(Order order) {
-        log.debug("Save order " + order.getId());
-
         MongoCollection<Document> collection = db.getCollection("orders");
-
 
         ObjectMapper objectMapper = new ObjectMapper();
         String orderJson = "";
         try {
-            orderJson = objectMapper.writeValueAsString(order);
+            orderJson = objectMapper.writeValueAsString(order.getDto());
         } catch (JsonProcessingException jsonProcessingException) {
             log.exception(jsonProcessingException);
         }
-        DBObject orderDbObject = (DBObject)JSON.parse(orderJson);
-        // Document doc = new Document("order", orderJson);
-        // collection.insert(orderDbObject);
+
+        Document document = Document.parse(orderJson);
+        collection.insertOne(document);
 
         log.debug("Order " + order.getId() + " saved.");
     }

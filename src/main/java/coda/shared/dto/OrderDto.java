@@ -2,8 +2,11 @@ package coda.shared.dto;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import coda.shared.OrderStatus;
 
+@JsonIgnoreProperties({"_id"})
 public class OrderDto {
     private UUID id;
     private String name;
@@ -19,5 +22,7 @@ public class OrderDto {
     public void setName(String name) { this.name = name; }
 
     public String getStatus() { return this.status.toString(); }
-    public void setStatus(String status) { this.status = OrderStatus.valueOf(status); }
+    public void setStatus(String status) { 
+        this.status = OrderStatus.valueOf(status); 
+    }
 }
