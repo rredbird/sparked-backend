@@ -7,7 +7,9 @@
 /out-tsc
 bin/
 /logs
+/logs/*
 log.log
+*.log
 
 # IDEs and editors
 /.idea
