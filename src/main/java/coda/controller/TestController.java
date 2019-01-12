@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import coda.database.DataLayer;
 import coda.order.Order;
-import coda.shared.dto.Greeting;
 import coda.shared.logging.ILogging;
 import coda.shared.properties.Properties;
 
@@ -64,31 +63,30 @@ public class TestController {
         propertiesInfo += properties.getMongoDatabaseName() + "\n";
         propertiesInfo += properties.getMongoDatabasePort() + "\n";
 
+        log.debug(propertiesInfo);
+
         Order testorder = new Order();
         String testorderName = "testorder";
         testorder.setName(testorderName);
 
         UUID testorderID = testorder.getId();
-
         dataLayer.saveOrder(testorder);
-        int orderCount = dataLayer.getOrders().size();
-        if(orderCount < 1) {
-            return new ResponseEntity<>("DataLayer access not working as expected, orders size error.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        log.info("Orders in dataLayer: " + orderCount);
 
         Order loadedOrder = dataLayer.getOrder(testorderID);
-        if(loadedOrder.getId().equals(testorderID) || !loadedOrder.getName().equals(testorderName)) {
+        if(!loadedOrder.getId().equals(testorderID) || !loadedOrder.getName().equals(testorderName)) {
             return new ResponseEntity<>("DataLayer access not working as expected, testorder error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        log.info("Testorder successfully saved and loaded");
+        log.info("Testorder loaded");
+
+        dataLayer.deleteOrder(loadedOrder);
+
+        loadedOrder = dataLayer.getOrder(loadedOrder.getId());
+        if(loadedOrder != null) {
+            return new ResponseEntity<>("DataLayer access not working as expected, deleted order not null.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        log.info("Testorder deleted");
 
         return new ResponseEntity<>("Selftest succeeded", HttpStatus.OK);
-    }
-
-    @GetMapping("/testDataLayer")
-    public HttpEntity<Greeting> testDataLayer() {
-        return new ResponseEntity<>(dataLayer.readGreeting(0), HttpStatus.OK);
     }
 
     @GetMapping("/hateoas")

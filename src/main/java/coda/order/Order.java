@@ -4,12 +4,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.shared.logging.ILogging;
 import coda.shared.OrderStatus;
 import coda.shared.dto.OrderDto;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Order {
     @Autowired
     private ILogging log;
@@ -24,10 +30,12 @@ public class Order {
         id = UUID.randomUUID();
     }
 
+    @JsonProperty("_id")
     public UUID getId() { return id; }
-
+    
     public List<Task> getTasks() { return tasks; }
 
+    @JsonIgnore
     public OrderDto getDto() {
         OrderDto dto = new OrderDto();
         
