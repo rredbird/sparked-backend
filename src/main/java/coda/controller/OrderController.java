@@ -55,10 +55,12 @@ public class OrderController {
 
         if(order == null)
         {
-            order = new Order();
+            order = new Order(orderData);
         }
         
         order.loadFromDto(orderData);
+
+        dataLayer.saveOrder(order);
 
         return order.getDto();
     }

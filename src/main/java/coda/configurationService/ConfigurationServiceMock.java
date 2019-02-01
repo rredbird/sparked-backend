@@ -54,6 +54,8 @@ public class ConfigurationServiceMock implements IConfigurationService {
             e.printStackTrace();
         }
 
+        log.trace(classifiers.getClassifiers().size() + " classifiers found.");
+
         return classifiers;
     }
 
@@ -71,6 +73,8 @@ public class ConfigurationServiceMock implements IConfigurationService {
             e.printStackTrace();
         }
 
+        log.trace(validationMethods.getValidators().size() + " validation methods found.");
+        
         return validationMethods;
     }
 
@@ -88,6 +92,8 @@ public class ConfigurationServiceMock implements IConfigurationService {
             e.printStackTrace();
         }
 
+        log.trace(evaluationMetrics.getMetrics().size() + " evaluation metrics found.");
+
         return evaluationMetrics;
     }
 
@@ -104,6 +110,8 @@ public class ConfigurationServiceMock implements IConfigurationService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        log.trace(datasets.getDatasets().size() + " datasets found.");
 
         return datasets;
     }

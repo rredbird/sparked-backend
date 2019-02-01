@@ -1,33 +1,12 @@
 package coda.configurationService;
 
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Arrays;
-import java.util.Date;
-
 import java.io.IOException;
-import java.io.File;
 
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-import org.bson.Document;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.util.ResourceUtils;
 
 import coda.shared.dto.Classifiers;
 import coda.shared.dto.Datasets;
@@ -57,6 +36,8 @@ public class ConfigurationService implements IConfigurationService {
             e.printStackTrace();
         }
 
+        log.trace(classifiers.getClassifiers().size() + " classifiers found.");
+
         return classifiers;
     }
 
@@ -73,6 +54,8 @@ public class ConfigurationService implements IConfigurationService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+        log.trace(validationMethods.getValidators().size() + " validation methods found.");
 
         return validationMethods;
     }
@@ -91,6 +74,8 @@ public class ConfigurationService implements IConfigurationService {
             e.printStackTrace();
         }
 
+        log.trace(evaluationMetrics.getMetrics().size() + " evaluation metrics found.");
+
         return evaluationMetrics;
     }
 
@@ -107,6 +92,8 @@ public class ConfigurationService implements IConfigurationService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        log.trace(datasets.getDatasets().size() + " datasets found.");
 
         return datasets;
     }

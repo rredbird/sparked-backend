@@ -30,6 +30,12 @@ public class Order {
         id = UUID.randomUUID();
     }
 
+    public Order(OrderDto orderDto) {
+        tasks = new LinkedList<>();
+        id = orderDto.getId();
+        loadFromDto(orderDto);
+    }
+
     @JsonProperty("_id")
     public UUID getId() { return id; }
     

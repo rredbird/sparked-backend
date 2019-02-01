@@ -1,11 +1,14 @@
 package coda.database;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Stack;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.UUID;
 
 import java.io.IOException;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,11 +25,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-
 import org.bson.Document;
 
 import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;
+import coda.notification.Notification;
 import coda.order.Order;
 
 public class DataLayer {
@@ -40,7 +43,9 @@ public class DataLayer {
     @Autowired
     private ILogging log;
 
-    public DataLayer() { }
+    public DataLayer() { 
+        inMemoryNotificationDatabase = new HashMap<UUID, Stack<Notification>>();
+    }
 
     public void initialize() {
         log.debug("initialize datalayer");
@@ -118,5 +123,32 @@ public class DataLayer {
         }
 
         return orderJson;
+    }
+
+    private Map<UUID, Stack<Notification>> inMemoryNotificationDatabase;
+
+    public void saveNotification(UUID userId, Notification notification) {
+        if(!inMemoryNotificationDatabase.containsKey(userId)) {
+            inMemoryNotificationDatabase.put(userId, new Stack<Notification>());
+        }
+        inMemoryNotificationDatabase.get(userId).push(notification);
+    }
+
+    /**
+     * 
+     * @param userID
+     * @param count
+     * @return Returns at least 0 and a maximum of count Notifications in an LinkedList.
+     */
+    public List<Notification> getLastNotifications(UUID userID, int count) {
+        List<Notification> notifications = new LinkedList<Notification>();
+        Stack<Notification> notificationStack = inMemoryNotificationDatabase.get(userID);
+
+        if(notificationStack != null) {
+            for(int i = 0; i < Math.min(notificationStack.size(), count); ++i) {
+                notifications.add(notificationStack.get(i));
+            }
+        }
+        return notifications;
     }
 }
