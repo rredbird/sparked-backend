@@ -50,7 +50,7 @@ public class ConfigurationController {
     }
 
     @GetMapping("/classifiers")
-    public List<Classifier> classifiers() {
+    public List<ClassifierDto> classifiers() {
         return configurationService.getClassifiers().getClassifiers();
     }
 

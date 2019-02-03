@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -13,48 +12,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.shared.logging.ILogging;
 import coda.shared.OrderStatus;
+import coda.shared.dto.ClassifierDto;
 import coda.shared.dto.OrderDto;
+import coda.shared.interfaces.IDto;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Order {
+public class Order implements IDto<Order, OrderDto> {
     @Autowired
     private ILogging log;
 
     private List<Task> tasks;
     private UUID id;
     private String name;
-    private OrderStatus orderStatus; 
+    private OrderStatus orderStatus;
+    private List<Classifier> classifiers;
 
     public Order() {
         tasks = new LinkedList<Task>();
         id = UUID.randomUUID();
+        classifiers = new LinkedList<Classifier>();
     }
 
     public Order(OrderDto orderDto) {
-        tasks = new LinkedList<>();
+        this();
         id = orderDto.getId();
-        loadFromDto(orderDto);
+        fromDto(orderDto);
     }
 
     @JsonProperty("_id")
     public UUID getId() { return id; }
     
     public List<Task> getTasks() { return tasks; }
-
-    @JsonIgnore
-    public OrderDto getDto() {
-        OrderDto dto = new OrderDto();
-        
-        dto.setId(this.id);
-        dto.setName(this.name);
-        dto.setStatus(this.orderStatus == null ? OrderStatus.WAITING.toString() : this.orderStatus.toString());
-
-        return dto;
-    }
-    public void loadFromDto(OrderDto order) {
-        this.name = order.getName();
-        this.orderStatus = OrderStatus.valueOf(OrderStatus.class, order.getStatus());
-    }
 
     public String pause() {
         for (Task task: tasks) {
@@ -96,5 +84,38 @@ public class Order {
         }        
     }
     public OrderStatus getOrderStatus() { return this.orderStatus; }
-}
 
+    public void setClassifiers(List<Classifier> classifiers) { this.classifiers = classifiers; }
+    public List<Classifier> getClassifiers() { return this.classifiers; }
+
+    @Override
+    @JsonIgnore
+    public Order fromDto(OrderDto dto) {
+        this.name = dto.getName();
+        this.orderStatus = OrderStatus.valueOf(OrderStatus.class, dto.getStatus());
+        this.setClassifiers(new LinkedList<Classifier>());
+        for (ClassifierDto classifierDto : dto.getClassifiers()) {
+            this.classifiers.add(new Classifier().fromDto(classifierDto));
+        }
+
+        return this;
+    }
+
+    @Override
+    @JsonIgnore
+    public OrderDto toDto() {
+        OrderDto dto = new OrderDto();
+        
+        dto.setId(this.id);
+        dto.setName(this.name);
+        dto.setStatus(this.orderStatus == null ? OrderStatus.WAITING.toString() : this.orderStatus.toString());
+
+        List<ClassifierDto> classifierDtos = new LinkedList<>();
+        for (Classifier classifier : this.classifiers) {
+            classifierDtos.add(classifier.toDto());
+        }
+        dto.setClassifiers(classifierDtos);
+
+        return dto;
+    }
+}

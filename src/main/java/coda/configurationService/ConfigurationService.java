@@ -1,6 +1,12 @@
 package coda.configurationService;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -8,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import coda.shared.dto.Classifiers;
+import coda.shared.dto.ClassifiersDto;
 import coda.shared.dto.Datasets;
 import coda.shared.dto.EvaluationMetrics;
 import coda.shared.dto.ValidationMethods;
@@ -22,18 +28,20 @@ public class ConfigurationService implements IConfigurationService {
     @Autowired 
     private ILogging log;
 
-    public Classifiers getClassifiers() {
-        Classifiers classifiers = null;
+    public ClassifiersDto getClassifiers() {
+        ClassifiersDto classifiers = null;
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            classifiers = mapper.readValue(loadClassifierExample(), Classifiers.class);
+            classifiers = mapper.readValue(loadClassifiers(), ClassifiersDto.class);
         } catch (JsonGenerationException e) {
-            e.printStackTrace();
+            log.exception(e);
         } catch (JsonMappingException e) {
-             e.printStackTrace();       
+             log.exception(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.exception(e);
+        } catch (Exception e) {
+            log.exception(e);
         }
 
         log.trace(classifiers.getClassifiers().size() + " classifiers found.");
@@ -98,16 +106,48 @@ public class ConfigurationService implements IConfigurationService {
         return datasets;
     }
 
-    private String loadClassifierExample() {
-        return "";
+    private String loadClassifiers() throws Exception {
+        return apiCall("listClassifiers");
     }
     private String loadValidationMethodExample() {
-        return "";
+        String validationMethodJson = null;
+        try {
+            validationMethodJson = new String(Files.readAllBytes(Paths.get("./resources/validationmethods.json")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return validationMethodJson;
     }
     private String loadEvaluationMetricsExample() {
-        return "";
+        String evaluationMetricsJson = null;
+        try {
+            evaluationMetricsJson = new String(Files.readAllBytes(Paths.get("./resources/evaluationmetrics.json")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return evaluationMetricsJson;
     }
     private String loadDatasetsExample() {
-        return "";
+        String datasetsJson = null;
+        try {
+            datasetsJson = new String(Files.readAllBytes(Paths.get("./resources/datasets.json")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return datasetsJson;
     }
+
+    public static String apiCall(String urlPath) throws Exception {
+        StringBuilder result = new StringBuilder();
+        URL url = new URL("http://coda-api:5000/evaluation/" + urlPath);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        String line;
+        while ((line = rd.readLine()) != null) {
+           result.append(line);
+        }
+        rd.close();
+        return result.toString();
+     }
 }

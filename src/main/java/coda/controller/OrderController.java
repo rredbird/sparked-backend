@@ -46,7 +46,7 @@ public class OrderController {
 
     @GetMapping("/orders/{id}")
     public OrderDto getOrder(@PathVariable UUID id) {
-        return dataLayer.getOrder(id).getDto();
+        return dataLayer.getOrder(id).toDto();
     }
 
     @PostMapping("/orders/save")
@@ -56,20 +56,20 @@ public class OrderController {
         if(order == null)
         {
             order = new Order(orderData);
+        } else {
+            order.fromDto(orderData);
         }
-        
-        order.loadFromDto(orderData);
 
         dataLayer.saveOrder(order);
 
-        return order.getDto();
+        return order.toDto();
     }
 
     @GetMapping("/orders/new")
     public OrderDto createOrder() {
         Order order = new Order();
 
-        return order.getDto();
+        return order.toDto();
     }
 
     @PatchMapping("/orders/{id}/pause")

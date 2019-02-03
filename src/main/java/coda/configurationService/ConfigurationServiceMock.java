@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
-import coda.shared.dto.Classifiers;
+import coda.shared.dto.ClassifiersDto;
 import coda.shared.dto.Datasets;
 import coda.shared.dto.EvaluationMetrics;
 import coda.shared.dto.ValidationMethods;
@@ -40,12 +40,12 @@ public class ConfigurationServiceMock implements IConfigurationService {
     @Autowired 
     private ILogging log;
 
-    public Classifiers getClassifiers() {
-        Classifiers classifiers = null;
+    public ClassifiersDto getClassifiers() {
+        ClassifiersDto classifiers = null;
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            classifiers = mapper.readValue(loadClassifierExample(), Classifiers.class);
+            classifiers = mapper.readValue(loadClassifierExample(), ClassifiersDto.class);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {

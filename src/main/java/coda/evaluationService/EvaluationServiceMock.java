@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import coda.shared.dto.Classifiers;
+import coda.shared.dto.ClassifiersDto;
 import coda.shared.dto.Datasets;
 import coda.shared.dto.EvaluationMetrics;
 import coda.shared.dto.ValidationMethods;

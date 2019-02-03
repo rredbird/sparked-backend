@@ -1,0 +1,236 @@
+{
+	"id": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19",
+	"name": "coda-api_v1",
+	"description": "",
+	"order": [
+		"632e7473-aa3d-4210-7bc9-de4e0c9caa3c"
+	],
+	"folders": [
+		{
+			"owner": "2053306",
+			"lastUpdatedBy": "2053306",
+			"lastRevision": 4228425022,
+			"folder": null,
+			"id": "45d759f9-b3a9-2f2e-f946-494429ed776d",
+			"name": "evaluation-service",
+			"description": "",
+			"variables": null,
+			"auth": null,
+			"events": null,
+			"order": [
+				"6a70cc31-caa2-444e-d6f9-628a24184c61",
+				"fb0e5570-a65b-cdb0-bf9f-62cd0e2cefce",
+				"764275e9-31f1-71bb-96bf-f8e966feacd5",
+				"90c2e9a1-6a71-50d9-12e9-a6fde076c98f",
+				"4eac1489-1034-9f0c-aa60-26222dbeb001"
+			],
+			"folders_order": []
+		}
+	],
+	"folders_order": [
+		"45d759f9-b3a9-2f2e-f946-494429ed776d"
+	],
+	"timestamp": 0,
+	"owner": "2053306",
+	"public": false,
+	"requests": [
+		{
+			"id": "4eac1489-1034-9f0c-aa60-26222dbeb001",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/evaluation/legacylaunchClassifier",
+			"folder": "45d759f9-b3a9-2f2e-f946-494429ed776d",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537442649605,
+			"name": "POST /evaluation/launchClassifier",
+			"description": null,
+			"collectionId": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19",
+			"responses": [],
+			"rawModeData": "{\n  \"datasetId\": \"german\",\n  \"classifierName\": \"DecisionTreeClassifier\",\n  \"hyperParams\":{\n    \"impurity\":\"gini\",\n    \"maxBins\":\"32\",\n    \"maxDepth\":\"5\"\n  }\n}"
+		},
+		{
+			"id": "632e7473-aa3d-4210-7bc9-de4e0c9caa3c",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.0.2.64:8080/",
+			"folder": null,
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537784381413,
+			"name": "GET /",
+			"description": null,
+			"collectionId": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19",
+			"responses": []
+		},
+		{
+			"id": "6a70cc31-caa2-444e-d6f9-628a24184c61",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.0.2.64:8080/evaluation/listClassifiers",
+			"folder": "45d759f9-b3a9-2f2e-f946-494429ed776d",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": null,
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537784371605,
+			"name": "GET /evaluation/listClassifiers",
+			"description": null,
+			"collectionId": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19",
+			"responses": []
+		},
+		{
+			"id": "764275e9-31f1-71bb-96bf-f8e966feacd5",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.0.2.64:8080/evaluation/listEvaluationMetrics",
+			"folder": "45d759f9-b3a9-2f2e-f946-494429ed776d",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": null,
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537784355310,
+			"name": "GET /evaluation/listEvaluationMetrics",
+			"description": null,
+			"collectionId": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19",
+			"responses": []
+		},
+		{
+			"id": "90c2e9a1-6a71-50d9-12e9-a6fde076c98f",
+			"headers": "",
+			"headerData": [],
+			"url": "http://10.0.2.64:8080/evaluation/listDatasets",
+			"folder": "45d759f9-b3a9-2f2e-f946-494429ed776d",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": null,
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1537784358706,
+			"name": "GET /evaluation/listDatasets",
+			"description": null,
+			"collectionId": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19",
+			"responses": [
+				{
+					"owner": "2053306",
+					"lastUpdatedBy": "2053306",
+					"lastRevision": 4123435582,
+					"request": "90c2e9a1-6a71-50d9-12e9-a6fde076c98f",
+					"id": "eb1e18ce-5b08-40da-8176-9020985a8d8a",
+					"name": "GET /evaluation/listDatasets",
+					"status": "OK",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": ""
+					},
+					"time": "27",
+					"headers": [
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "12",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "text/plain;charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Wed, 20 Jun 2018 15:26:05 GMT",
+							"description": "The date and time that the message was sent"
+						}
+					],
+					"cookies": [],
+					"mime": null,
+					"text": "listDatasets",
+					"language": "plainText",
+					"rawDataType": "text",
+					"requestObject": "{\"id\":\"266fc155-f69d-45f7-a9ff-aee042606740\",\"description\":\"\",\"method\":\"GET\",\"headers\":\"\",\"data\":[],\"rawModeData\":\"\",\"url\":\"http://localhost:8080/evaluation/listDatasets\",\"pathVariableData\":[],\"queryParams\":[],\"headerData\":[]}",
+					"createdAt": "2018-06-20T15:49:35.000Z",
+					"updatedAt": "2018-06-20T15:49:35.000Z"
+				}
+			]
+		},
+		{
+			"folder": "45d759f9-b3a9-2f2e-f946-494429ed776d",
+			"id": "fb0e5570-a65b-cdb0-bf9f-62cd0e2cefce",
+			"name": "GET /evaluation/listValidationMethods",
+			"dataMode": null,
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": null,
+			"variables": null,
+			"headers": "",
+			"method": "GET",
+			"pathVariables": null,
+			"url": "http://localhost:8080/evaluation/listValidationMethods",
+			"preRequestScript": null,
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "f4f92d68-c4fd-f6a9-bfc4-65fc22f56d19"
+		}
+	]
+}

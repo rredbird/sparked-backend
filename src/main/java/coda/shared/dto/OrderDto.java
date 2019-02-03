@@ -1,5 +1,6 @@
 package coda.shared.dto;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,6 +12,7 @@ public class OrderDto {
     private UUID id;
     private String name;
     private OrderStatus status;
+    private List<ClassifierDto> classifiers;
 
     public OrderDto() {
     }
@@ -24,5 +26,12 @@ public class OrderDto {
     public String getStatus() { return this.status.toString(); }
     public void setStatus(String status) { 
         this.status = OrderStatus.valueOf(status); 
+    }
+
+    public List<ClassifierDto> getClassifiers() {
+        return classifiers;
+    }
+    public void setClassifiers(List<ClassifierDto> classifiers) {
+        this.classifiers = classifiers;
     }
 }
