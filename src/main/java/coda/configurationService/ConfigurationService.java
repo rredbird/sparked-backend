@@ -106,35 +106,43 @@ public class ConfigurationService implements IConfigurationService {
         return datasets;
     }
 
-    private String loadClassifiers() throws Exception {
-        return apiCall("listClassifiers");
+    private String loadClassifiers() {
+        String classifiersJson = "";
+        try { 
+            classifiersJson = apiCall("listClassifiers");
+        } catch (Exception e) {
+            log.exception(e);
+            log.error("Classifiers could not be loaded. Loading local defaults instead.");
+            classifiersJson = fileCall("classifiers.json");
+        }
+
+        return classifiersJson;
+
     }
     private String loadValidationMethodExample() {
         String validationMethodJson = null;
-        try {
-            validationMethodJson = new String(Files.readAllBytes(Paths.get("./resources/validationmethods.json")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        validationMethodJson = fileCall("validationmethods.json");
         return validationMethodJson;
     }
     private String loadEvaluationMetricsExample() {
         String evaluationMetricsJson = null;
-        try {
-            evaluationMetricsJson = new String(Files.readAllBytes(Paths.get("./resources/evaluationmetrics.json")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        evaluationMetricsJson = fileCall("evaluationmetrics.json");
         return evaluationMetricsJson;
     }
     private String loadDatasetsExample() {
         String datasetsJson = null;
-        try {
-            datasetsJson = new String(Files.readAllBytes(Paths.get("./resources/datasets.json")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        datasetsJson = fileCall("datasets.json");
         return datasetsJson;
+    }
+
+    public String fileCall(String urlPath) {
+        String fileData = "";
+        try {
+            fileData = new String(Files.readAllBytes(Paths.get("./resources/" + urlPath)));
+        } catch (Exception e) {
+            log.exception(e);
+        }
+        return fileData;
     }
 
     public static String apiCall(String urlPath) throws Exception {
