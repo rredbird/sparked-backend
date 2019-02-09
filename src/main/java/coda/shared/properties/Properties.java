@@ -1,8 +1,6 @@
 package coda.shared.properties;
 
-import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import coda.shared.logging.ILogging;
 
 public class Properties {

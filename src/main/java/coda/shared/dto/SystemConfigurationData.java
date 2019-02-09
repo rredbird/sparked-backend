@@ -1,11 +1,6 @@
 package coda.shared.dto;
 
-import java.util.List;
-
 import org.springframework.hateoas.ResourceSupport;
-
-import java.util.LinkedList;
-
 
 public class SystemConfigurationData extends ResourceSupport {
     private String key;

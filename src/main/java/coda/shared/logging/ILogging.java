@@ -1,7 +1,5 @@
 package coda.shared.logging;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 import org.springframework.stereotype.Component;
 
 @Component("logging")

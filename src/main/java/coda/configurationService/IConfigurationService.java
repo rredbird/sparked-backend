@@ -1,9 +1,5 @@
 package coda.configurationService;
 
-import org.bson.Document;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import coda.shared.dto.ClassifiersDto;

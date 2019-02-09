@@ -1,9 +1,6 @@
 package coda.shared.interceptors;
 
-import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
-import java.util.UUID;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
