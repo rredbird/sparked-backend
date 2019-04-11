@@ -13,10 +13,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import coda.model.order.ValidationMethods;
 import coda.shared.dto.ClassifiersDto;
 import coda.shared.dto.Datasets;
 import coda.shared.dto.EvaluationMetrics;
-import coda.shared.dto.ValidationMethods;
 import coda.shared.logging.ILogging;
 
 public class ConfigurationServiceMock implements IConfigurationService {

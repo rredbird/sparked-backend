@@ -3,13 +3,13 @@ package coda.di;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import coda.database.DataLayer;
+import coda.datalayer.MongoDatabaseAccess;
 
 @Configuration
 public class DataLayerConfig {
     @Bean
-    public DataLayer dataLayer() {
-        return new DataLayer(); 
+    public MongoDatabaseAccess mongoDatabaseAccess() {
+        return new MongoDatabaseAccess(); 
     }
 }
 

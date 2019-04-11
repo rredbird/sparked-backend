@@ -1,57 +1,47 @@
-package coda.order;
+package coda.model.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import coda.shared.dto.ClassifierParameterDto;
+import coda.shared.dto.ResultParameterDto;
 import coda.shared.interfaces.IDto;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClassifierParameter implements IDto<ClassifierParameter, ClassifierParameterDto> {
+public class ResultParameter implements IDto<ResultParameter, ResultParameterDto> {
     private String name;
     private String doc;
     private String value;
     private String paramType;
     private String javaType;
 
-    public ClassifierParameter() {
+    public ResultParameter() {
     }
 
     public void setName(String name) { this.name = name; };
-    public void setDoc(String doc) { this.doc = doc; };
     public void setValue(String value) { this.value = value; };
-    public void setParamType(String paramType) { this.paramType = paramType; };
-    public void setJavaType(String javaType) { this.javaType = javaType; };
 
     public String getName() {
         return name;
     }
-
-    public String getDoc() {
-        return doc;
-    }
-
     public String getValue() {
         return value;
     }
 
-    public String getParamType() {
-        return paramType;
-    }
-
-    public String getJavaType() {
-        return javaType;
+    @Override
+    public ResultParameter fromDto(ResultParameterDto dto) {
+        return this;
     }
 
     @Override
-    public ClassifierParameter fromDto(ClassifierParameterDto dto) {
-        return null;
-    }
+    public ResultParameterDto toDto() {
+        ResultParameterDto dto = new ResultParameterDto();
 
-    @Override
-    public ClassifierParameterDto toDto() {
-        return null;
+        dto.setName(this.name);
+        dto.setValue(this.value);
+
+        return dto;
     }
 }
 

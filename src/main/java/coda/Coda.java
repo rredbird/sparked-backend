@@ -15,7 +15,7 @@ import java.io.IOException;
 
 import coda.shared.logging.ILogging;
 import coda.shared.properties.Properties;
-import coda.database.DataLayer;
+import coda.datalayer.MongoDatabaseAccess;
 
 @Component
 public class Coda {
@@ -27,7 +27,7 @@ public class Coda {
     private Properties properties;
 
     @Autowired
-    private DataLayer dataLayer;
+    private MongoDatabaseAccess dataLayer;
 
     /**
      *

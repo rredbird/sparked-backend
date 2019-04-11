@@ -1,11 +1,11 @@
 package coda.shared.dto;
 
-public class Dataset {
+public class DatasetDto {
     private String id;
     private String revision;
     private String description;
 
-    public Dataset() {
+    public DatasetDto() {
         id = "";
         revision = "";
         description = "";

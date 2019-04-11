@@ -1,4 +1,4 @@
-package coda.order;
+package coda.model.order;
 
 import java.util.List;
 
@@ -56,7 +56,9 @@ public class Classifier implements IDto<Classifier, ClassifierDto> {
         List<ClassifierParameterDto> parameterDtos = new LinkedList<ClassifierParameterDto>();
         
         for (ClassifierParameter parameter : this.parameters) {
-            parameterDtos.add(parameter.toDto());
+            if(parameter != null) {
+                parameterDtos.add(parameter.toDto());
+            }
         }
 
         dto.setParameters(parameterDtos);

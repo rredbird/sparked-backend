@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import coda.shared.dto.*;
-import coda.database.DataLayer;
+import coda.datalayer.MongoDatabaseAccess;
 import coda.configurationService.IConfigurationService;
 import coda.shared.logging.ILogging;
 import coda.shared.properties.Properties;
@@ -22,7 +22,7 @@ import coda.shared.properties.Properties;
 @CrossOrigin(origins = Properties.CorsOriginAdress)
 public class NotificationController {
     @Autowired
-    private DataLayer dataLayer;
+    private MongoDatabaseAccess dataLayer;
 
     @Autowired
     private IConfigurationService configurationService;

@@ -13,7 +13,7 @@
     <Root level="warn">
     </Root>
 
-    <Logger name="coda.shared" level="trace">
+    <Logger name="coda.shared" level="debug">
         <AppenderRef ref="fileAppender" />
     </Logger>
   </Loggers>

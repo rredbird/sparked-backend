@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import coda.shared.dto.*;
-import coda.database.DataLayer;
+import coda.datalayer.MongoDatabaseAccess;
+import coda.model.order.ValidationMethod;
 import coda.configurationService.IConfigurationService;
 import coda.shared.logging.ILogging;
 import coda.shared.properties.Properties;
@@ -21,7 +22,7 @@ import coda.shared.properties.Properties;
 @CrossOrigin(origins = Properties.CorsOriginAdress)
 public class ConfigurationController {
     @Autowired
-    private DataLayer dataLayer;
+    private MongoDatabaseAccess dataLayer;
 
     @Autowired
     private IConfigurationService configurationService;
@@ -38,7 +39,7 @@ public class ConfigurationController {
     }
 
     @GetMapping("/validationmethods")
-    public List<Validator> validationMethods() {
+    public List<ValidationMethod> validationMethods() {
         return configurationService.getValidationMethods().getValidators();
     }
 
@@ -48,7 +49,7 @@ public class ConfigurationController {
     }
 
     @GetMapping("/datasets")
-    public List<Dataset> datasets() {
+    public List<DatasetDto> datasets() {
         return configurationService.getDatasets().getDatasets();
     }
 }

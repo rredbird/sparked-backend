@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import coda.shared.dto.*;
-import coda.database.DataLayer;
+import coda.datalayer.MongoDatabaseAccess;
 import coda.shared.logging.ILogging;
 import coda.shared.properties.Properties;
 
@@ -24,7 +24,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 @CrossOrigin(origins = Properties.CorsOriginAdress)
 public class SystemConfigurationController {
     @Autowired
-    private DataLayer dataLayer;
+    private MongoDatabaseAccess dataLayer;
 
     @Autowired      
     private ILogging log;
@@ -45,7 +45,6 @@ public class SystemConfigurationController {
         Greeting greeting = new Greeting("Welcome to Coda", 0);
         greeting.add(linkTo(methodOn(SystemConfigurationController.class).start()).withSelfRel());
         greeting.add(linkTo(methodOn(OrderController.class).getOrders()).withRel("GetOrders"));
-        greeting.add(linkTo(methodOn(TestController.class).selfTest()).withRel("selfTest"));
 
         return new ResponseEntity<>(greeting, HttpStatus.OK);
     }
