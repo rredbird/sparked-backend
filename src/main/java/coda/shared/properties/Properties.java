@@ -9,6 +9,9 @@ public class Properties {
     private int mongoDatabasePort = 27017;
     private String mongoDatabaseIP = "127.0.0.1";
     private String mongoDatabaseName = "coda_db";
+    private int mongoConnectionTimeout = 1000;
+    private int mongoServerSelectionTimeout = 1000;
+    private int mongoSocketTimeout = 0;
     
     @Autowired
     private ILogging log;
@@ -60,6 +63,24 @@ public class Properties {
         setMongoDatabasePort(properties.getProperty("mongo_Port"));
         setMongoDatabaseIP(properties.getProperty("mongo_IP"));
         setMongoDatabaseName(properties.getProperty("mongo_Name"));
+        setMongoConnectionTimeout(properties.getProperty("mongo_Connection_Timeout"));
+        setMongoServerSelectionTimeout(properties.getProperty("mongo_Server_Selection_Timeout"));
+        setMongoSocketTimeout(properties.getProperty("mongo_Socket_Timeout"));
     }
+
+	public int getMongoConnectionTimeout() { return this.mongoConnectionTimeout; }
+	public void setMongoConnectionTimeout(String mongoConnectionTimeout) { 
+        this.mongoConnectionTimeout = Integer.parseInt(mongoConnectionTimeout);
+    }
+
+	public int getMongoServerSelectionTimeout() { return 0;	}
+    public void setMongoServerSelectionTimeout(String mongoServerSelectionTimeout) { 
+        Integer.parseInt(mongoServerSelectionTimeout); 
+    }
+
+	public int getMongoSocketTimeout() { return 1000; }
+	public void setMongoSocketTimeout(String mongoSocketTimeout) { 
+        this.mongoSocketTimeout = Integer.parseInt(mongoSocketTimeout); 
+    }    
 }
 

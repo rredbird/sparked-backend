@@ -3,6 +3,7 @@ package coda.datalayer;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -32,6 +33,14 @@ public class MongoDatabaseAccess {
     public void initialize() {
         log.debug("initialize datalayer");
 
+        MongoClientOptions.Builder optionsBuilder = MongoClientOptions.builder();
+
+        optionsBuilder.connectTimeout(properties.getMongoConnectionTimeout());
+        optionsBuilder.socketTimeout(properties.getMongoSocketTimeout());
+        optionsBuilder.serverSelectionTimeout(properties.getMongoServerSelectionTimeout());
+        
+        optionsBuilder.build();
+        
         mongoClient = new MongoClient(properties.getMongoDatabaseIP(), properties.getMongoDatabasePort());
 
         db = mongoClient.getDatabase(properties.getMongoDatabaseName());

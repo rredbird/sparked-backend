@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class OrderDto {
     private UUID id;
     private String name;
-    private String status;
     private List<TaskDto> tasks;
 
     public OrderDto() {
@@ -20,9 +19,6 @@ public class OrderDto {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-
-    public String getStatus() { return this.status; }
-    public void setStatus(String status) { this.status = status; }
 
     public List<TaskDto> getTasks() {
         return tasks;

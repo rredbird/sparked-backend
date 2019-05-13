@@ -58,7 +58,7 @@ public class OrderController {
     }
 
     @PostMapping("/orders/save")
-    public Order createOrder(@RequestBody OrderDto orderData) {
+    public OrderDto saveOrder(@RequestBody OrderDto orderData) {
         Order order = orderService.getOrder(orderData.getId());
 
         if(order == null)
@@ -70,7 +70,7 @@ public class OrderController {
 
         orderService.saveOrder(order);
 
-        return order;
+        return order.toDto();
     }
 
     @GetMapping("/orders/new")
