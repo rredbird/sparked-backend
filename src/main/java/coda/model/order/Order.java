@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.shared.logging.ILogging;
 import coda.shared.dto.OrderStatusDto;
+import coda.shared.dto.TaskDto;
 import coda.shared.dto.ClassifierDto;
 import coda.shared.dto.OrderDto;
 import coda.shared.interfaces.IDto;
@@ -28,16 +29,13 @@ public class Order implements IDto<Order, OrderDto> {
     @Autowired
     private ILogging log;
 
-    // private List<Task> tasks;
+    private List<Task> tasks;
     private UUID id;
     private String name = "";
-    private String orderStatus = "NEW";
-    private List<Classifier> classifiers;
-
+    
     public Order() {
-        // tasks = new LinkedList<Task>();
+        tasks = new LinkedList<Task>();
         id = UUID.randomUUID();
-        classifiers = new LinkedList<Classifier>();
     }
 
     public Order(UUID id) {
@@ -67,8 +65,7 @@ public class Order implements IDto<Order, OrderDto> {
 
         this.setId(order.getId());
         this.setName(order.getName());
-        this.setClassifiers(order.getClassifiers());
-        this.setOrderStatus(order.getOrderStatus());
+        this.setTasks(order.getTasks());
     }
 
     @JsonProperty("_id")
@@ -110,20 +107,16 @@ public class Order implements IDto<Order, OrderDto> {
     public void setName(String name) { this.name = name; }
     public String getName() { return this.name; }
     
-    public void setOrderStatus(String orderStatus) { this.orderStatus = orderStatus; }
-    public String getOrderStatus() { return this.orderStatus; }
-
-    public void setClassifiers(List<Classifier> classifiers) { this.classifiers = classifiers; }
-    public List<Classifier> getClassifiers() { return this.classifiers; }
+    public List<Task> getTasks() { return this.tasks; }
+    public void setTasks(List<Task> tasks) { this.tasks = tasks; }
 
     @Override
     @JsonIgnore
     public Order fromDto(OrderDto dto) {
         this.name = dto.getName();
-        this.orderStatus = dto.getStatus();
-        this.setClassifiers(new LinkedList<Classifier>());
-        for (ClassifierDto classifierDto : dto.getClassifiers()) {
-            this.classifiers.add(new Classifier().fromDto(classifierDto));
+        this.setTasks(new LinkedList<Task>());
+        for (TaskDto taskDto : dto.getTasks()) {
+            this.tasks.add(new Task().fromDto(taskDto));
         }
 
         return this;
@@ -136,13 +129,13 @@ public class Order implements IDto<Order, OrderDto> {
         
         dto.setId(this.id);
         dto.setName(this.name);
-        dto.setStatus(this.getOrderStatus());
 
-        List<ClassifierDto> classifierDtos = new LinkedList<>();
-        for (Classifier classifier : this.classifiers) {
-            classifierDtos.add(classifier.toDto());
+        List<TaskDto> taskDtos = new LinkedList<TaskDto>();
+
+        for (Task task : this.tasks) {
+            taskDtos.add(task.toDto());
         }
-        dto.setClassifiers(classifierDtos);
+        dto.setTasks(taskDtos);
 
         return dto;
     }

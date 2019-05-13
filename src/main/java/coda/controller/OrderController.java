@@ -74,10 +74,10 @@ public class OrderController {
     }
 
     @GetMapping("/orders/new")
-    public Order createOrder() {
+    public OrderDto createOrder() {
         Order order = new Order();
 
-        return order;
+        return order.toDto();
     }
 
     @PatchMapping("/orders/{id}/pause")

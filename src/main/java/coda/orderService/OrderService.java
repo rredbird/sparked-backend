@@ -2,32 +2,26 @@ package coda.orderService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.datalayer.CodaApiAccess;
 import coda.datalayer.MongoDatabaseAccess;
+import coda.model.order.EvaluationStatus;
 import coda.model.order.EvaluationStatusList;
+import coda.model.order.EvaluationStatusWrapper;
 import coda.model.order.Order;
 import coda.model.order.OrderResult;
-import coda.model.order.ValidationMethods;
-import coda.shared.OrderStatus;
-import coda.shared.dto.ClassifiersDto;
-import coda.shared.dto.Datasets;
-import coda.shared.dto.EvaluationMetrics;
-import coda.shared.dto.OrderStatusDto;
+import coda.model.order.Task;
 import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;
 
 import static com.mongodb.client.model.Filters.*;
 
-import java.awt.RenderingHints.Key;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 public class OrderService implements IOrderService {
@@ -147,25 +141,27 @@ public class OrderService implements IOrderService {
 
         for (Order order : ordersFromDatabase) {
             if(evaluationStatusList.containsOrder(order.getId())) {
-                order.setOrderStatus(evaluationStatusList.getStatus(order.getId()));
+                //order.setOrderStatus(evaluationStatusList.getStatus(order.getId()));
             }
         }
         if(includeUnknownOrders) {
-            for(UUID orderId : evaluationStatusList.keys()) {
+            for(EvaluationStatusWrapper evaluationStatusWrapper : evaluationStatusList.getStatusList()) {
+                Order newOrder = new Order(evaluationStatusWrapper.getEvaluationStatus().get(0).getId());
+                List<Task> newTasks = new LinkedList<Task>();
                 Boolean unknownOrder = true;
-                for(Order order : ordersFromDatabase) {
-                    if(order.getId().equals(orderId)) {
-                        unknownOrder = false;
-                        break;
+                for(EvaluationStatus evaluationStatus : evaluationStatusWrapper.getEvaluationStatus()) {
+                    for(Order order : ordersFromDatabase) {
+                        if(order.getId().equals(evaluationStatus.getId())) {
+                            unknownOrder = false;
+                            break;
+                        }
                     }
                 }
                 if(!unknownOrder) {
                     continue;
                 }
-                Order newOrder = new Order(orderId);
-                newOrder.setOrderStatus(evaluationStatusList.getStatus(orderId));
+                //newOrder.setOrderStatus(evaluationStatusWrapper.getEvaluationStatus().get(0).getStatus());
                 ordersFromDatabase.add(newOrder);
-
             }
         }
 
