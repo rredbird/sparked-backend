@@ -67,7 +67,7 @@ public class ResultDeserializer extends JsonDeserializer<OrderResult> {
 
             JsonNode validationMethodNode = paramsNode.get("validationMethod");
             ValidationMethod validationMethod = retVal.getValidationMethod();
-            validationMethod.setId(validationMethodNode.get("id").asText());
+            validationMethod.setName(validationMethodNode.get("name").asText());
 
             JsonNode validationMethodParam = validationMethodNode.get("param");
             List<ValidationParameter> validationParams = new LinkedList<ValidationParameter>();

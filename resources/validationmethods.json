@@ -1,32 +1,42 @@
 {
-	"validators":[
-		{
-			"id":"com.gt_arc.coda.ml.validation.SimpleSplitValidator",
-			"name":"SimpleSplitValidator",
-			"parameters":[
-				{
-					"name":"dummy parameter",
-					"doc":"for future extention"
-				}
-			]
-		},{
-			"id":"com.gt_arc.coda.ml.validation.BootstrapValidator",
-			"name":"BootstrapValidator",
-			"parameters":[
-				{
-					"name":"dummy parameter",
-					"doc":"for future extention"
-				} 
-			]
-		},{
-			"id":"com.gt_arc.coda.ml.validation.KFoldValidator",
-			"name":"KFoldValidator",
-			"parameters":[
-				{
-					"name":"dummy parameter",
-					"doc":"for future extention"
-				}
-			]
-		}
+	"validators": [
+	  {
+		"id": "com.gt_arc.coda.ml.validation.SimpleSplitValidator",
+		"name": "SimpleSplitValidator",
+		"parameters": [
+		  {
+			"name": "trainRatio",
+			"value": "0.7",
+			"doc": "train-test split ratio"
+		  },
+		  {
+			"name": "repetitions",
+			"value": "1",
+			"doc": "number of repetitions"
+		  }
+		]
+	  },
+	  {
+		"id": "com.gt_arc.coda.ml.validation.BootstrapValidator",
+		"name": "BootstrapValidator",
+		"parameters": [
+		  {
+			"name": "repetitions",
+			"value": "1",
+			"doc": "number of repetitions"
+		  }
+		]
+	  },
+	  {
+		"id": "com.gt_arc.coda.ml.validation.KFoldValidator",
+		"name": "KFoldValidator",
+		"parameters": [
+		  {
+			"name": "k",
+			"value": "5",
+			"doc": "number of folds"
+		  }
+		]
+	  }
 	]
-}
+  }

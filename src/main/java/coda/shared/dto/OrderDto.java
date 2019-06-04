@@ -5,25 +5,35 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+import coda.model.order.Task;
+
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderDto {
     private UUID id;
     private String name;
-    private List<TaskDto> tasks;
+    private List<Task> tasks;
+    private String status;
 
     public OrderDto() {
     }
 
-    public UUID getId() { return id; }
-    public void setId(UUID id) { this.id = id; }
+    public UUID getId() { 
+        return id; 
+    }
+    public void setId(UUID id) { 
+        this.id = id; 
+    }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public List<TaskDto> getTasks() {
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public List<Task> getTasks() {
         return tasks;
     }
-    public void setTasks(List<TaskDto> tasks) {
+    public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
 }

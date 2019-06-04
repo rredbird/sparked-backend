@@ -14,10 +14,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import coda.model.order.Datasets;
+import coda.model.order.EvaluationMetrics;
 import coda.model.order.ValidationMethods;
 import coda.shared.dto.ClassifiersDto;
-import coda.shared.dto.Datasets;
-import coda.shared.dto.EvaluationMetrics;
 import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;
 
@@ -25,7 +25,7 @@ public class ConfigurationService implements IConfigurationService {
     @Autowired
     private Properties properties;
 
-    @Autowired 
+    @Autowired
     private ILogging log;
 
     public ClassifiersDto getClassifiers() {
@@ -37,7 +37,7 @@ public class ConfigurationService implements IConfigurationService {
         } catch (JsonGenerationException e) {
             log.exception(e);
         } catch (JsonMappingException e) {
-             log.exception(e);
+            log.exception(e);
         } catch (IOException e) {
             log.exception(e);
         } catch (Exception e) {
@@ -54,15 +54,15 @@ public class ConfigurationService implements IConfigurationService {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            validationMethods = mapper.readValue(loadValidationMethodExample(), ValidationMethods.class);
+            validationMethods = mapper.readValue(loadValidationMethod(), ValidationMethods.class);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
-             e.printStackTrace();       
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         log.trace(validationMethods.getValidators().size() + " validation methods found.");
 
         return validationMethods;
@@ -73,11 +73,11 @@ public class ConfigurationService implements IConfigurationService {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            evaluationMetrics = mapper.readValue(loadEvaluationMetricsExample(), EvaluationMetrics.class);
+            evaluationMetrics = mapper.readValue(loadEvaluationMetrics(), EvaluationMetrics.class);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
-             e.printStackTrace();       
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class ConfigurationService implements IConfigurationService {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            datasets = mapper.readValue(loadDatasetsExample(), Datasets.class);
+            datasets = mapper.readValue(loadDatasets(), Datasets.class);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
@@ -119,19 +119,37 @@ public class ConfigurationService implements IConfigurationService {
         return classifiersJson;
 
     }
-    private String loadValidationMethodExample() {
+    private String loadValidationMethod() {
         String validationMethodJson = null;
-        validationMethodJson = fileCall("validationmethods.json");
+        try { 
+            validationMethodJson = apiCall("listValidationMethods");
+        } catch (Exception e) {
+            log.exception(e);
+            log.error("Validation methods could not be loaded. Loading local defaults instead.");
+            validationMethodJson = fileCall("validationmethods.json");
+        }
         return validationMethodJson;
     }
-    private String loadEvaluationMetricsExample() {
+    private String loadEvaluationMetrics() {
         String evaluationMetricsJson = null;
-        evaluationMetricsJson = fileCall("evaluationmetrics.json");
+        try { 
+            evaluationMetricsJson = apiCall("listEvaluationMetrics");
+        } catch (Exception e) {
+            log.exception(e);
+            log.error("Validation methods could not be loaded. Loading local defaults instead.");
+            evaluationMetricsJson = fileCall("evaluationmetrics.json");
+        }
         return evaluationMetricsJson;
     }
-    private String loadDatasetsExample() {
+    private String loadDatasets() {
         String datasetsJson = null;
-        datasetsJson = fileCall("datasets.json");
+        try { 
+            datasetsJson = apiCall("listDatasets?forcedRefresh=false");
+        } catch (Exception e) {
+            log.exception(e);
+            log.error("Validation methods could not be loaded. Loading local defaults instead.");
+            datasetsJson = fileCall("datasets.json");
+        }
         return datasetsJson;
     }
 
@@ -147,7 +165,7 @@ public class ConfigurationService implements IConfigurationService {
 
     public static String apiCall(String urlPath) throws Exception {
         StringBuilder result = new StringBuilder();
-        URL url = new URL("http://10.0.2.64:8080/evaluation/" + urlPath);
+        URL url = new URL("http://10.0.2.55:5000/evaluation/" + urlPath);
         HttpURLConnection.setFollowRedirects(false);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setConnectTimeout(1000);

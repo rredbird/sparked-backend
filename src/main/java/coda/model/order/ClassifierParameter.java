@@ -46,7 +46,12 @@ public class ClassifierParameter implements IDto<ClassifierParameter, Classifier
 
     @Override
     public ClassifierParameter fromDto(ClassifierParameterDto dto) {
-        return null;
+        this.setDoc(dto.getDoc());
+        this.setJavaType(dto.getJavaType());
+        this.setName(dto.getName());
+        this.setParamType(dto.getParamType());
+        this.setValue(dto.getValue());
+        return this;
     }
 
     @Override

@@ -4,19 +4,19 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import coda.shared.dto.TaskDto;
-import coda.shared.interfaces.IDto;
 import coda.shared.logging.ILogging;
 
-public class Task implements IDto<Task, TaskDto>  {
+public class Task {
     @Autowired
     private ILogging log;
 
     private UUID id;
     private Order order;
 
-    private String status = "new";
     private Classifier classifier;
+    private Dataset dataset;
+    private ValidationMethod validationMethod;
+    private EvaluationMetric metric;
 
     public Task(Order order) {
         id = UUID.randomUUID();
@@ -28,31 +28,20 @@ public class Task implements IDto<Task, TaskDto>  {
 
     public UUID getId() { return id; }
     public Classifier getClassifier() { return this.classifier; }
-    public String getStatus() { return this.status; } 
+    public Dataset getDataset() { return this.dataset; } 
+    public ValidationMethod getValidationMethod() { return this.validationMethod; } 
+    public EvaluationMetric getMetric() { return this.metric; } 
 
-    public void setId(UUID id) { this.id = id; }
+    public void setId(UUID id) { 
+        if(id.compareTo(UUID.fromString("00000000-0000-0000-0000-000000000000")) == 0) {
+            id = UUID.randomUUID();
+        }
+        this.id = id; 
+    }
     public void setClassifier(Classifier classifier) { this.classifier = classifier; }
-    public void setStatus(String status) { this.status = status; }
-
-    @Override
-    public Task fromDto(TaskDto dto) {
-        this.order = null;
-        this.setId(dto.getId());
-        this.setStatus(dto.getStatus());
-        this.setClassifier(new Classifier().fromDto(dto.getClassifier()));
-        return this;
-    }
-
-    @Override
-    public TaskDto toDto() {
-        TaskDto taskDto = new TaskDto();
-
-        taskDto.setClassifier(this.getClassifier().toDto());
-        taskDto.setId(this.getId());
-        taskDto.setStatus(this.getStatus());
-
-        return taskDto;
-    }
+    public void setDataset(Dataset dataset) { this.dataset = dataset; } 
+    public void setValidationMethod(ValidationMethod validationMethod) { this.validationMethod = validationMethod; } 
+    public void setMetric(EvaluationMetric metric) { this.metric = metric; } 
 }
 
 

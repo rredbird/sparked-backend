@@ -5,12 +5,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import coda.model.order.ValidationParameter;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ValidationMethodDto {
     private String name;
-    private String value;
+    private String id;
     private List<ValidationParameterDto> parameters;
 
     public ValidationMethodDto() {
@@ -19,11 +17,14 @@ public class ValidationMethodDto {
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    public void setParameters(List<ValidationParameterDto> parameters) { this.parameters = parameters; }
 
-    public String getValue() { return value; }
-    public void setValue(String value) { this.value = value; }
 
-	public void addParameters(ValidationParameterDto parameterDto) {
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+    public List<ValidationParameterDto> getParameters() { return this.parameters; }
+
+	public void addParameter(ValidationParameterDto parameterDto) {
         this.parameters.add(parameterDto);
 	}
 }

@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.shared.logging.ILogging;
 import coda.shared.dto.OrderStatusDto;
-import coda.shared.dto.TaskDto;
 import coda.shared.dto.ClassifierDto;
 import coda.shared.dto.OrderDto;
 import coda.shared.interfaces.IDto;
@@ -32,6 +31,7 @@ public class Order implements IDto<Order, OrderDto> {
     private List<Task> tasks;
     private UUID id;
     private String name = "";
+    private String status = "";
     
     public Order() {
         tasks = new LinkedList<Task>();
@@ -50,6 +50,10 @@ public class Order implements IDto<Order, OrderDto> {
     }
 
     public Order(String orderAsJsonString) {
+        this();
+        if(orderAsJsonString == null || orderAsJsonString == "") {
+            return;
+        }
         Order order = null;
         ObjectMapper mapper = new ObjectMapper();
 
@@ -65,6 +69,7 @@ public class Order implements IDto<Order, OrderDto> {
 
         this.setId(order.getId());
         this.setName(order.getName());
+        this.setStatus(order.getStatus());
         this.setTasks(order.getTasks());
     }
 
@@ -106,6 +111,9 @@ public class Order implements IDto<Order, OrderDto> {
 
     public void setName(String name) { this.name = name; }
     public String getName() { return this.name; }
+
+    public void setStatus(String status) { this.status = status; }
+    public String getStatus() { return this.status; }
     
     public List<Task> getTasks() { return this.tasks; }
     public void setTasks(List<Task> tasks) { this.tasks = tasks; }
@@ -114,10 +122,14 @@ public class Order implements IDto<Order, OrderDto> {
     @JsonIgnore
     public Order fromDto(OrderDto dto) {
         this.name = dto.getName();
-        this.setTasks(new LinkedList<Task>());
-        for (TaskDto taskDto : dto.getTasks()) {
-            this.tasks.add(new Task().fromDto(taskDto));
+        this.status = dto.getStatus();
+        if(dto.getId().compareTo(UUID.fromString("00000000-0000-0000-0000-000000000000")) != 0) {
+            this.id = dto.getId();
+        } else {
+            this.id = UUID.randomUUID();
         }
+        this.setTasks(new LinkedList<Task>());
+        this.tasks = dto.getTasks();
 
         return this;
     }
@@ -129,13 +141,9 @@ public class Order implements IDto<Order, OrderDto> {
         
         dto.setId(this.id);
         dto.setName(this.name);
+        dto.setStatus(this.status);
 
-        List<TaskDto> taskDtos = new LinkedList<TaskDto>();
-
-        for (Task task : this.tasks) {
-            taskDtos.add(task.toDto());
-        }
-        dto.setTasks(taskDtos);
+        dto.setTasks(this.getTasks());
 
         return dto;
     }

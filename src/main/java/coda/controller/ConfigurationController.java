@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import coda.shared.dto.*;
 import coda.datalayer.MongoDatabaseAccess;
+import coda.model.order.Dataset;
+import coda.model.order.EvaluationMetric;
 import coda.model.order.ValidationMethod;
 import coda.configurationService.IConfigurationService;
 import coda.shared.logging.ILogging;
@@ -49,7 +51,7 @@ public class ConfigurationController {
     }
 
     @GetMapping("/datasets")
-    public List<DatasetDto> datasets() {
+    public List<Dataset> datasets() {
         return configurationService.getDatasets().getDatasets();
     }
 }

@@ -1,18 +1,21 @@
 package coda.model.order;
 
-import coda.shared.dto.DatasetDto;
-import coda.shared.interfaces.IDto;
-
-public class Dataset implements IDto<Dataset, DatasetDto>
+public class Dataset
 {
     private String id;
     private String revision;
     private String description;
+    private Integer instances;
+    private Integer classes;
+    private Integer features;
 
     public Dataset() {
         id = "";
         revision = "";
         description = "";
+        classes = -1;
+        features = -1;
+        instances = -1;
     }
 
     public String getId() { return id; }
@@ -24,25 +27,14 @@ public class Dataset implements IDto<Dataset, DatasetDto>
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    @Override
-    public Dataset fromDto(DatasetDto dto) {
-        this.setId(dto.getId());
-        this.setDescription(dto.getDescription());
-        this.setRevision(dto.getRevision());
+    public Integer getClasses() { return classes; }
+    public void setClasses(Integer classes) { this.classes = classes; }
+    
+    public Integer getFeatures() { return features; }
+    public void setFeatures(Integer features) { this.features = features; }
 
-        return this;
-    }
-
-    @Override
-    public DatasetDto toDto() {
-        DatasetDto retVal = new DatasetDto();
-
-        retVal.setId(this.id);
-        retVal.setDescription(this.description);
-        retVal.setRevision(this.revision);
-
-        return retVal;
-    }
+    public Integer getInstances() { return instances; }
+    public void setInstances(Integer instances) { this.instances = instances; }
 }
 
 

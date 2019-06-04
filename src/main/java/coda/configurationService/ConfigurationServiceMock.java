@@ -1,11 +1,9 @@
 package coda.configurationService;
 
-
 import java.io.IOException;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -13,10 +11,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import coda.model.order.Datasets;
+import coda.model.order.EvaluationMetrics;
 import coda.model.order.ValidationMethods;
 import coda.shared.dto.ClassifiersDto;
-import coda.shared.dto.Datasets;
-import coda.shared.dto.EvaluationMetrics;
 import coda.shared.logging.ILogging;
 
 public class ConfigurationServiceMock implements IConfigurationService {

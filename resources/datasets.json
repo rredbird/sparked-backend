@@ -1,11 +1,1300 @@
 {
-	"datasets":[
-		{
-			"id":"monk3",
-			"revision":"",
-			"description":""
-		},{
-			"id":"german",
-			"revision":"",
-			"description":""
-		},{"id":"flare","revision":"","description":""},{"id":"analcatdata_cyyoung9302","revision":"","description":""},{"id":"Hill_Valley_with_noise","revision":"","description":""},{"id":"ring","revision":"","description":""},{"id":"monk1","revision":"","description":""},{"id":"credit_g","revision":"","description":""},{"id":"monk2","revision":"","description":""},{"id":"phoneme","revision":"","description":""},{"id":"agaricus_lepiota","revision":"","description":""},{"id":"ionosphere","revision":"","description":""},{"id":"prnn_synth","revision":"","description":""},{"id":"spambase","revision":"","description":""},{"id":"LIBSVM","revision":"","description":""},{"id":"haberman","revision":"","description":""},{"id":"threeOf9","revision":"","description":""},{"id":"fars","revision":"","description":""},{"id":"collins","revision":"","description":""},{"id":"dna","revision":"","description":""},{"id":"car_evaluation","revision":"","description":""},{"id":"clean2","revision":"","description":""},{"id":"clean1","revision":"","description":""},{"id":"mushroom","revision":"","description":""},{"id":"iris","revision":"","description":""},{"id":"page_blocks","revision":"","description":""},{"id":"allbp","revision":"","description":""},{"id":"analcatdata_authorship","revision":"","description":""},{"id":"mfeat_fourier","revision":"","description":""},{"id":"yeast","revision":"","description":""},{"id":"analcatdata_creditscore","revision":"","description":""},{"id":"labor","revision":"","description":""},{"id":"cars","revision":"","description":""},{"id":"shuttle","revision":"","description":""},{"id":"nursery","revision":"","description":""},{"id":"prnn_fglass","revision":"","description":""},{"id":"titanic","revision":"","description":""},{"id":"calendarDOW","revision":"","description":""},{"id":"letter","revision":"","description":""},{"id":"cmc","revision":"","description":""},{"id":"new_thyroid","revision":"","description":""},{"id":"kr_vs_kp","revision":"","description":""},{"id":"adult","revision":"","description":""},{"id":"colic","revision":"","description":""},{"id":"credit_a","revision":"","description":""},{"id":"analcatdata_dmft","revision":"","description":""},{"id":"krkopt","revision":"","description":""},{"id":"horse_colic","revision":"","description":""},{"id":"wine_quality_red","revision":"","description":""},{"id":"optdigits","revision":"","description":""},{"id":"churn","revision":"","description":""},{"id":"MNIST","revision":"","description":""},{"id":"australian","revision":"","description":""},{"id":"flags","revision":"","description":""},{"id":"irish","revision":"","description":""},{"id":"appendicitis","revision":"","description":""},{"id":"analcatdata_bankruptcy","revision":"","description":""},{"id":"wine_quality_white","revision":"","description":""},{"id":"solar_flare_1","revision":"","description":""},{"id":"hungarian","revision":"","description":""},{"id":"postoperative_patient_data","revision":"","description":""},{"id":"solar_flare_2","revision":"","description":""},{"id":"tic_tac_toe","revision":"","description":""},{"id":"vehicle","revision":"","description":""},{"id":"sleep","revision":"","description":""},{"id":"cars1","revision":"","description":""},{"id":"mux6","revision":"","description":""},{"id":"segmentation","revision":"","description":""},{"id":"allhypo","revision":"","description":""},{"id":"heart_statlog","revision":"","description":""},{"id":"promoters","revision":"","description":""},{"id":"cleveland","revision":"","description":""},{"id":"soybean","revision":"","description":""},{"id":"cleveland_nominal","revision":"","description":""},{"id":"saheart","revision":"","description":""},{"id":"satimage","revision":"","description":""},{"id":"connect_4","revision":"","description":""},{"id":"texture","revision":"","description":""},{"id":"lymphography","revision":"","description":""},{"id":"ann_thyroid","revision":"","description":""},{"id":"prnn_crabs","revision":"","description":""},{"id":"hepatitis","revision":"","description":""},{"id":"cleve","revision":"","description":""},{"id":"pendigits","revision":"","description":""},{"id":"GAMETES_Epistasis_3_Way_20atts_0_2H_EDM_1_1","revision":"","description":""},{"id":"dermatology","revision":"","description":""},{"id":"ecoli","revision":"","description":""},{"id":"kddcup","revision":"","description":""},{"id":"profb","revision":"","description":""},{"id":"backache","revision":"","description":""},{"id":"hayes_roth","revision":"","description":""},{"id":"wine_recognition","revision":"","description":""},{"id":"pima","revision":"","description":""},{"id":"analcatdata_lawsuit","revision":"","description":""},{"id":"mnist","revision":"","description":""},{"id":"diabetes","revision":"","description":""},{"id":"magic","revision":"","description":""},{"id":"auto","revision":"","description":""},{"id":"movement_libras","revision":"","description":""},{"id":"libsvm","revision":"","description":""},{"id":"breast_cancer_wisconsin","revision":"","description":""},{"id":"analcatdata_happiness","revision":"","description":""},{"id":"parity5_5","revision":"","description":""},{"id":"GAMETES_Epistasis_2_Way_1000atts_0_4H_EDM_1_EDM_1_1","revision":"","description":""},{"id":"dis","revision":"","description":""},{"id":"cloud","revision":"","description":""},{"id":"spect","revision":"","description":""},{"id":"analcatdata_boxing1","revision":"","description":""},{"id":"analcatdata_boxing2","revision":"","description":""},{"id":"hypothyroid","revision":"","description":""},{"id":"corral","revision":"","description":""},{"id":"tae","revision":"","description":""},{"id":"breast_w","revision":"","description":""},{"id":"waveform_40","revision":"","description":""},{"id":"balance_scale","revision":"","description":""},{"id":"GAMETES_Heterogeneity_20atts_1600_Het_0_4_0_2_75_EDM_2_001","revision":"","description":""},{"id":"banana","revision":"","description":""},{"id":"mofn_3_7_10","revision":"","description":""},{"id":"glass","revision":"","description":""},{"id":"waveform_21","revision":"","description":""},{"id":"chess","revision":"","description":""},{"id":"mfeat_pixel","revision":"","description":""},{"id":"poker","revision":"","description":""},{"id":"schizo","revision":"","description":""},{"id":"DATASET100KI10F3C","revision":"","description":""},{"id":"bupa","revision":"","description":""},{"id":"led24","revision":"","description":""},{"id":"breast_cancer","revision":"","description":""},{"id":"buggyCrx","revision":"","description":""},{"id":"analcatdata_germangss","revision":"","description":""},{"id":"vowel","revision":"","description":""},{"id":"analcatdata_cyyoung8092","revision":"","description":""},{"id":"twonorm","revision":"","description":""},{"id":"led7","revision":"","description":""},{"id":"heart_h","revision":"","description":""},{"id":"molecular_biology_promoters","revision":"","description":""},{"id":"heart_c","revision":"","description":""},{"id":"Hill_Valley_without_noise","revision":"","description":""},{"id":"GAMETES_Epistasis_2_Way_20atts_0_1H_EDM_1_1","revision":"","description":""},{"id":"sonar","revision":"","description":""},{"id":"tokyo1","revision":"","description":""},{"id":"xd6","revision":"","description":""},{"id":"lupus","revision":"","description":""},{"id":"mfeat_karhunen","revision":"","description":""},{"id":"coil2000","revision":"","description":""},{"id":"glass2","revision":"","description":""},{"id":"car","revision":"","description":""},{"id":"GAMETES_Epistasis_2_Way_20atts_0_4H_EDM_1_1","revision":"","description":""},{"id":"allhyper","revision":"","description":""},{"id":"vote","revision":"","description":""},{"id":"parity5","revision":"","description":""},{"id":"analcatdata_fraud","revision":"","description":""},{"id":"mfeat_zernike","revision":"","description":""},{"id":"analcatdata_japansolvent","revision":"","description":""},{"id":"analcatdata_aids","revision":"","description":""},{"id":"splice","revision":"","description":""},{"id":"confidence","revision":"","description":""},{"id":"crx","revision":"","description":""},{"id":"analcatdata_asbestos","revision":"","description":""},{"id":"liver_disorder","revision":"","description":""},{"id":"GAMETES_Heterogeneity_20atts_1600_Het_0_4_0_2_50_EDM_2_001","revision":"","description":""},{"id":"mfeat_morphological","revision":"","description":""},{"id":"biomed","revision":"","description":""},{"id":"wdbc","revision":"","description":""},{"id":"mfeat_factors","revision":"","description":""},{"id":"dataset100kI10F3C","revision":"","description":""},{"id":"spectf","revision":"","description":""},{"id":"house_votes_84","revision":"","description":""},{"id":"breast","revision":"","description":""},{"id":"contraceptive","revision":"","description":""}]}
+	"datasets": [
+	  {
+		"id": "monk3",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 554,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "german",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1000,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "flare",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1066,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "analcatdata_cyyoung9302",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 92,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "Hill_Valley_with_noise",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1212,
+		"classes": 2,
+		"features": 100
+	  },
+	  {
+		"id": "ring",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 7400,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "monk1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 556,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "phoneme",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5404,
+		"classes": 2,
+		"features": 5
+	  },
+	  {
+		"id": "monk2",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 601,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "GAMETES_Epistasis_3-Way_20atts_0.2H_EDM-1_1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1600,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "breast-cancer",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 286,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "ionosphere",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 351,
+		"classes": 2,
+		"features": 34
+	  },
+	  {
+		"id": "mfeat-zernike",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2000,
+		"classes": 10,
+		"features": 47
+	  },
+	  {
+		"id": "prnn_synth",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 250,
+		"classes": 2,
+		"features": 2
+	  },
+	  {
+		"id": "horse-colic",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 368,
+		"classes": 2,
+		"features": 22
+	  },
+	  {
+		"id": "spambase",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 4601,
+		"classes": 2,
+		"features": 57
+	  },
+	  {
+		"id": "haberman",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 306,
+		"classes": 2,
+		"features": 3
+	  },
+	  {
+		"id": "fars",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 100968,
+		"classes": 8,
+		"features": 29
+	  },
+	  {
+		"id": "threeOf9",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 512,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "collins",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 485,
+		"classes": 13,
+		"features": 23
+	  },
+	  {
+		"id": "dna",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3186,
+		"classes": 3,
+		"features": 180
+	  },
+	  {
+		"id": "clean2",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 6598,
+		"classes": 2,
+		"features": 168
+	  },
+	  {
+		"id": "clean1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 476,
+		"classes": 2,
+		"features": 168
+	  },
+	  {
+		"id": "mushroom",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 8124,
+		"classes": 2,
+		"features": 22
+	  },
+	  {
+		"id": "iris",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 150,
+		"classes": 3,
+		"features": 4
+	  },
+	  {
+		"id": "allbp",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3772,
+		"classes": 3,
+		"features": 29
+	  },
+	  {
+		"id": "solar-flare_2",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1066,
+		"classes": 6,
+		"features": 12
+	  },
+	  {
+		"id": "solar-flare_1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 315,
+		"classes": 5,
+		"features": 12
+	  },
+	  {
+		"id": "analcatdata_authorship",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 841,
+		"classes": 4,
+		"features": 70
+	  },
+	  {
+		"id": "credit-a",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 690,
+		"classes": 2,
+		"features": 15
+	  },
+	  {
+		"id": "yeast",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1479,
+		"classes": 9,
+		"features": 8
+	  },
+	  {
+		"id": "waveform-40",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5000,
+		"classes": 3,
+		"features": 40
+	  },
+	  {
+		"id": "analcatdata_creditscore",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 100,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "labor",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 57,
+		"classes": 2,
+		"features": 16
+	  },
+	  {
+		"id": "car-evaluation",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1728,
+		"classes": 4,
+		"features": 21
+	  },
+	  {
+		"id": "cars",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 392,
+		"classes": 3,
+		"features": 8
+	  },
+	  {
+		"id": "shuttle",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 58000,
+		"classes": 7,
+		"features": 9
+	  },
+	  {
+		"id": "prnn_fglass",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 205,
+		"classes": 5,
+		"features": 9
+	  },
+	  {
+		"id": "nursery",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 12958,
+		"classes": 4,
+		"features": 8
+	  },
+	  {
+		"id": "mfeat-pixel",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2000,
+		"classes": 10,
+		"features": 240
+	  },
+	  {
+		"id": "credit-g",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1000,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "calendarDOW",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 399,
+		"classes": 5,
+		"features": 32
+	  },
+	  {
+		"id": "letter",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 20000,
+		"classes": 26,
+		"features": 16
+	  },
+	  {
+		"id": "adult",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 48842,
+		"classes": 2,
+		"features": 14
+	  },
+	  {
+		"id": "colic",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 368,
+		"classes": 2,
+		"features": 22
+	  },
+	  {
+		"id": "analcatdata_dmft",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 797,
+		"classes": 6,
+		"features": 4
+	  },
+	  {
+		"id": "mfeat-fourier",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2000,
+		"classes": 10,
+		"features": 76
+	  },
+	  {
+		"id": "krkopt",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 28056,
+		"classes": 18,
+		"features": 6
+	  },
+	  {
+		"id": "parity5+5",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1124,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "postoperative-patient-data",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 88,
+		"classes": 2,
+		"features": 8
+	  },
+	  {
+		"id": "mofn-3-7-10",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1324,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "optdigits",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5620,
+		"classes": 10,
+		"features": 64
+	  },
+	  {
+		"id": "churn",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5000,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "australian",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 690,
+		"classes": 2,
+		"features": 14
+	  },
+	  {
+		"id": "irish",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 500,
+		"classes": 2,
+		"features": 5
+	  },
+	  {
+		"id": "flags",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 178,
+		"classes": 5,
+		"features": 43
+	  },
+	  {
+		"id": "analcatdata_bankruptcy",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 50,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "appendicitis",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 106,
+		"classes": 2,
+		"features": 7
+	  },
+	  {
+		"id": "hungarian",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 294,
+		"classes": 2,
+		"features": 13
+	  },
+	  {
+		"id": "breast-cancer-wisconsin",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 569,
+		"classes": 2,
+		"features": 30
+	  },
+	  {
+		"id": "vehicle",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 846,
+		"classes": 4,
+		"features": 18
+	  },
+	  {
+		"id": "sleep",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 105908,
+		"classes": 5,
+		"features": 13
+	  },
+	  {
+		"id": "cars1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 392,
+		"classes": 3,
+		"features": 7
+	  },
+	  {
+		"id": "molecular-biology_promoters",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 106,
+		"classes": 2,
+		"features": 58
+	  },
+	  {
+		"id": "mux6",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 128,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "segmentation",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2310,
+		"classes": 7,
+		"features": 19
+	  },
+	  {
+		"id": "allhypo",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3770,
+		"classes": 3,
+		"features": 29
+	  },
+	  {
+		"id": "promoters",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 106,
+		"classes": 2,
+		"features": 58
+	  },
+	  {
+		"id": "cleveland",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 303,
+		"classes": 5,
+		"features": 13
+	  },
+	  {
+		"id": "soybean",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 675,
+		"classes": 18,
+		"features": 35
+	  },
+	  {
+		"id": "saheart",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 462,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "hayes-roth",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 160,
+		"classes": 3,
+		"features": 4
+	  },
+	  {
+		"id": "satimage",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 6435,
+		"classes": 6,
+		"features": 36
+	  },
+	  {
+		"id": "texture",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5500,
+		"classes": 11,
+		"features": 40
+	  },
+	  {
+		"id": "lymphography",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 148,
+		"classes": 4,
+		"features": 18
+	  },
+	  {
+		"id": "connect-4",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 67557,
+		"classes": 3,
+		"features": 42
+	  },
+	  {
+		"id": "prnn_crabs",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 200,
+		"classes": 2,
+		"features": 7
+	  },
+	  {
+		"id": "breast-w",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 699,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "mfeat-morphological",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2000,
+		"classes": 10,
+		"features": 6
+	  },
+	  {
+		"id": "wine-quality-red",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1599,
+		"classes": 6,
+		"features": 11
+	  },
+	  {
+		"id": "hepatitis",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 155,
+		"classes": 2,
+		"features": 19
+	  },
+	  {
+		"id": "cleve",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 303,
+		"classes": 2,
+		"features": 13
+	  },
+	  {
+		"id": "pendigits",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 10992,
+		"classes": 10,
+		"features": 16
+	  },
+	  {
+		"id": "ecoli",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 327,
+		"classes": 5,
+		"features": 7
+	  },
+	  {
+		"id": "dermatology",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 366,
+		"classes": 6,
+		"features": 34
+	  },
+	  {
+		"id": "mfeat-factors",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2000,
+		"classes": 10,
+		"features": 216
+	  },
+	  {
+		"id": "kddcup",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 494020,
+		"classes": 23,
+		"features": 41
+	  },
+	  {
+		"id": "profb",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 672,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "backache",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 180,
+		"classes": 2,
+		"features": 32
+	  },
+	  {
+		"id": "pima",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 768,
+		"classes": 2,
+		"features": 8
+	  },
+	  {
+		"id": "tic-tac-toe",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 958,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "mnist",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 70000,
+		"classes": 10,
+		"features": 784
+	  },
+	  {
+		"id": "analcatdata_lawsuit",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 264,
+		"classes": 2,
+		"features": 4
+	  },
+	  {
+		"id": "balance-scale",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 625,
+		"classes": 3,
+		"features": 4
+	  },
+	  {
+		"id": "liver-disorder",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 345,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "diabetes",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 768,
+		"classes": 2,
+		"features": 8
+	  },
+	  {
+		"id": "mfeat-karhunen",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 2000,
+		"classes": 10,
+		"features": 64
+	  },
+	  {
+		"id": "magic",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 19020,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "GAMETES_Epistasis_2-Way_1000atts_0.4H_EDM-1_EDM-1_1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1600,
+		"classes": 2,
+		"features": 1000
+	  },
+	  {
+		"id": "movement_libras",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 360,
+		"classes": 15,
+		"features": 90
+	  },
+	  {
+		"id": "analcatdata_happiness",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 60,
+		"classes": 3,
+		"features": 3
+	  },
+	  {
+		"id": "dis",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3772,
+		"classes": 2,
+		"features": 29
+	  },
+	  {
+		"id": "cloud",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 108,
+		"classes": 4,
+		"features": 7
+	  },
+	  {
+		"id": "spect",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 267,
+		"classes": 2,
+		"features": 22
+	  },
+	  {
+		"id": "analcatdata_boxing1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 120,
+		"classes": 2,
+		"features": 3
+	  },
+	  {
+		"id": "GAMETES_Heterogeneity_20atts_1600_Het_0.4_0.2_50_EDM-2_001",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1600,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "analcatdata_boxing2",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 132,
+		"classes": 2,
+		"features": 3
+	  },
+	  {
+		"id": "hypothyroid",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3163,
+		"classes": 2,
+		"features": 25
+	  },
+	  {
+		"id": "corral",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 160,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "tae",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 151,
+		"classes": 3,
+		"features": 5
+	  },
+	  {
+		"id": "agaricus-lepiota",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 8145,
+		"classes": 2,
+		"features": 22
+	  },
+	  {
+		"id": "page-blocks",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5473,
+		"classes": 5,
+		"features": 10
+	  },
+	  {
+		"id": "house-votes-84",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 435,
+		"classes": 2,
+		"features": 16
+	  },
+	  {
+		"id": "glass",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 205,
+		"classes": 5,
+		"features": 9
+	  },
+	  {
+		"id": "chess",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3196,
+		"classes": 2,
+		"features": 36
+	  },
+	  {
+		"id": "poker",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1025009,
+		"classes": 10,
+		"features": 10
+	  },
+	  {
+		"id": "schizo",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 340,
+		"classes": 3,
+		"features": 14
+	  },
+	  {
+		"id": "bupa",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 345,
+		"classes": 2,
+		"features": 6
+	  },
+	  {
+		"id": "GAMETES_Epistasis_2-Way_20atts_0.1H_EDM-1_1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1600,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "led24",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3200,
+		"classes": 10,
+		"features": 24
+	  },
+	  {
+		"id": "kr-vs-kp",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3196,
+		"classes": 2,
+		"features": 36
+	  },
+	  {
+		"id": "buggyCrx",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 690,
+		"classes": 2,
+		"features": 15
+	  },
+	  {
+		"id": "analcatdata_germangss",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 400,
+		"classes": 4,
+		"features": 5
+	  },
+	  {
+		"id": "vowel",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 990,
+		"classes": 11,
+		"features": 13
+	  },
+	  {
+		"id": "wine-recognition",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 178,
+		"classes": 3,
+		"features": 13
+	  },
+	  {
+		"id": "analcatdata_cyyoung8092",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 97,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "twonorm",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 7400,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "new-thyroid",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 215,
+		"classes": 3,
+		"features": 5
+	  },
+	  {
+		"id": "led7",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3200,
+		"classes": 10,
+		"features": 7
+	  },
+	  {
+		"id": "wine-quality-white",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 4893,
+		"classes": 6,
+		"features": 11
+	  },
+	  {
+		"id": "Hill_Valley_without_noise",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1212,
+		"classes": 2,
+		"features": 100
+	  },
+	  {
+		"id": "sonar",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 208,
+		"classes": 2,
+		"features": 60
+	  },
+	  {
+		"id": "xd6",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 973,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "tokyo1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 959,
+		"classes": 2,
+		"features": 44
+	  },
+	  {
+		"id": "heart-h",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 294,
+		"classes": 2,
+		"features": 13
+	  },
+	  {
+		"id": "lupus",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 87,
+		"classes": 2,
+		"features": 3
+	  },
+	  {
+		"id": "coil2000",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 9822,
+		"classes": 2,
+		"features": 85
+	  },
+	  {
+		"id": "glass2",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 163,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "car",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1728,
+		"classes": 4,
+		"features": 6
+	  },
+	  {
+		"id": "heart-statlog",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 270,
+		"classes": 2,
+		"features": 13
+	  },
+	  {
+		"id": "allhyper",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3771,
+		"classes": 4,
+		"features": 29
+	  },
+	  {
+		"id": "vote",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 435,
+		"classes": 2,
+		"features": 16
+	  },
+	  {
+		"id": "parity5",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 32,
+		"classes": 2,
+		"features": 5
+	  },
+	  {
+		"id": "analcatdata_fraud",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 42,
+		"classes": 2,
+		"features": 11
+	  },
+	  {
+		"id": "analcatdata_japansolvent",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 52,
+		"classes": 2,
+		"features": 9
+	  },
+	  {
+		"id": "analcatdata_aids",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 50,
+		"classes": 2,
+		"features": 4
+	  },
+	  {
+		"id": "splice",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3188,
+		"classes": 3,
+		"features": 60
+	  },
+	  {
+		"id": "confidence",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 72,
+		"classes": 6,
+		"features": 3
+	  },
+	  {
+		"id": "crx",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 690,
+		"classes": 2,
+		"features": 15
+	  },
+	  {
+		"id": "analcatdata_asbestos",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 83,
+		"classes": 2,
+		"features": 3
+	  },
+	  {
+		"id": "GAMETES_Epistasis_2-Way_20atts_0.4H_EDM-1_1",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1600,
+		"classes": 2,
+		"features": 20
+	  },
+	  {
+		"id": "waveform-21",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 5000,
+		"classes": 3,
+		"features": 21
+	  },
+	  {
+		"id": "ann-thyroid",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 7200,
+		"classes": 3,
+		"features": 21
+	  },
+	  {
+		"id": "heart-c",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 303,
+		"classes": 2,
+		"features": 13
+	  },
+	  {
+		"id": "biomed",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 209,
+		"classes": 2,
+		"features": 8
+	  },
+	  {
+		"id": "allrep",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 3772,
+		"classes": 4,
+		"features": 29
+	  },
+	  {
+		"id": "wdbc",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 569,
+		"classes": 2,
+		"features": 30
+	  },
+	  {
+		"id": "spectf",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 349,
+		"classes": 2,
+		"features": 44
+	  },
+	  {
+		"id": "cleveland-nominal",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 303,
+		"classes": 5,
+		"features": 7
+	  },
+	  {
+		"id": "contraceptive",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1473,
+		"classes": 3,
+		"features": 9
+	  },
+	  {
+		"id": "breast",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 699,
+		"classes": 2,
+		"features": 10
+	  },
+	  {
+		"id": "GAMETES_Heterogeneity_20atts_1600_Het_0.4_0.2_75_EDM-2_001",
+		"revision": "1.0",
+		"description": "pmlb dataset",
+		"instances": 1600,
+		"classes": 2,
+		"features": 20
+	  }
+	]
+  }

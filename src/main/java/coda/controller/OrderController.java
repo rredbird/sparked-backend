@@ -59,7 +59,8 @@ public class OrderController {
 
     @PostMapping("/orders/save")
     public OrderDto saveOrder(@RequestBody OrderDto orderData) {
-        Order order = orderService.getOrder(orderData.getId());
+        UUID id = orderData.getId();
+        Order order = id == null ? null : orderService.getOrder(id);
 
         if(order == null)
         {

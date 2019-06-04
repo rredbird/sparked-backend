@@ -123,7 +123,7 @@ public class OrderResult implements IDto<OrderResult, OrderResultDto> {
         dto.setClassifier(this.classifier.toDto());
         dto.setValidationMethod(this.validationMethod.toDto());
         dto.setValidationMetric(this.validationMetric.toDto());
-        dto.setDataset(this.dataset.toDto());
+        dto.setDataset(this.dataset);
         dto.setBestConfiguration(bestConfiguration.toDto());
 
         List<ConfigurationDto> configurations = new LinkedList<ConfigurationDto>();
