@@ -16,8 +16,8 @@ public class Task {
     private Classifier classifier;
     private Dataset dataset;
     private ValidationMethod validationMethod;
-    private EvaluationMetric metric;
-
+    private Metric metric;
+    
     public Task(Order order) {
         id = UUID.randomUUID();
         this.order = order;
@@ -30,7 +30,7 @@ public class Task {
     public Classifier getClassifier() { return this.classifier; }
     public Dataset getDataset() { return this.dataset; } 
     public ValidationMethod getValidationMethod() { return this.validationMethod; } 
-    public EvaluationMetric getMetric() { return this.metric; } 
+    public Metric getMetric() { return this.metric; } 
 
     public void setId(UUID id) { 
         if(id.compareTo(UUID.fromString("00000000-0000-0000-0000-000000000000")) == 0) {
@@ -41,7 +41,11 @@ public class Task {
     public void setClassifier(Classifier classifier) { this.classifier = classifier; }
     public void setDataset(Dataset dataset) { this.dataset = dataset; } 
     public void setValidationMethod(ValidationMethod validationMethod) { this.validationMethod = validationMethod; } 
-    public void setMetric(EvaluationMetric metric) { this.metric = metric; } 
+    public void setMetric(Metric metric) { this.metric = metric; } 
+
+    private String status = "";
+    public void setStatus(String status) { this.status = status; }
+    public String getStatus() { return this.status; }
 }
 
 

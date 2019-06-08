@@ -6,6 +6,7 @@ import com.mongodb.MongoClient;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
@@ -74,6 +75,34 @@ public class CodaApiAccess {
         connection.setConnectTimeout(1000);
         connection.setRequestMethod("GET");
         
+        BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String line;
+        while ((line = rd.readLine()) != null) {
+            result.append(line);
+        }
+        rd.close();
+        return result.toString();
+    }
+
+    public static String post(String urlPath, String payload) throws Exception {
+        StringBuilder result = new StringBuilder();
+        String urlString = "http://10.0.2.55:5000/evaluation/" + urlPath;
+//        String urlString = "http://10.0.2.64:8080/evaluation/" + urlPath;
+        
+        URL url = new URL(urlString);
+        HttpURLConnection.setFollowRedirects(false);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setConnectTimeout(1000);
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json; utf-8");
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setDoOutput(true);
+
+        try(OutputStream os = connection.getOutputStream()) {
+            byte[] input = payload.getBytes("utf-8");
+            os.write(input, 0, input.length);           
+        }
+
         BufferedReader rd = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String line;
         while ((line = rd.readLine()) != null) {

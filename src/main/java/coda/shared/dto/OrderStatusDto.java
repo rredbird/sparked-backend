@@ -1,21 +1,21 @@
-package coda.shared.dto;
+// package coda.shared.dto;
 
-import coda.shared.ResultDeserializer;
+// import coda.shared.ResultDeserializer;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+// import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(using = ResultDeserializer.class)
-public class OrderStatusDto {
+// // @JsonDeserialize(using = ResultDeserializer.class)
+// public class OrderStatusDto {
 
-    public OrderStatusDto() {
-    }
+//     public OrderStatusDto() {
+//     }
 
-    private String id;
-    private String status;
+//     private String id;
+//     private String status;
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+//     public String getStatus() { return status; }
+//     public void setStatus(String status) { this.status = status; }
 
-    public String getId() { return this.id; }
-    public void setId(String id) { this.id = id; }
-}
+//     public String getId() { return this.id; }
+//     public void setId(String id) { this.id = id; }
+// }

@@ -17,4 +17,16 @@ public class EvaluationStatusWrapper {
 
     public List<EvaluationStatus> getEvaluationStatus() { return this.evaluationStatus; }
     public void setId(List<EvaluationStatus> evaluationStatus) { this.evaluationStatus = evaluationStatus; }
+
+    
+    @Override
+    public String toString() {
+        String retVal = "";
+
+        for(EvaluationStatus wrapper : evaluationStatus) {
+            retVal += wrapper.toString();
+        }
+
+        return retVal;
+    }
 }

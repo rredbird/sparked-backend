@@ -1,6 +1,5 @@
 package coda.controller;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import coda.shared.dto.*;
 import coda.orderService.IOrderService;
 import coda.shared.logging.ILogging;
+import coda.model.evaluation.Evaluations;
 import coda.model.order.Order;
 import coda.shared.properties.Properties;
 
@@ -37,48 +36,42 @@ public class OrderController {
     }
 
     @GetMapping("/orders")
-    public List<OrderDto> getOrders() {
-        List<OrderDto> retVal = new LinkedList<OrderDto>();
-        for(Order order : orderService.getOrders(true)) {
-            retVal.add(order.toDto());
-        }
-        return retVal;
+    public List<Order> getOrders() {
+        return orderService.getOrders(true);
     }
 
     @GetMapping("/orders/{id}")
-    public OrderDto getOrder(@PathVariable UUID id) {
-        return orderService.getOrder(id).toDto();
+    public Order getOrder(@PathVariable UUID mongoId) {
+        return orderService.getOrder(mongoId);
     }
 
     @GetMapping("/orders/{id}/result")
-    public OrderResultDto getResult(@PathVariable UUID id) {
-        OrderResultDto retVal = orderService.getResult(id).toDto();
+    public Evaluations getResult(@PathVariable UUID id) {
+        Evaluations retVal = orderService.getResult(id);
         
         return retVal;
     }
 
     @PostMapping("/orders/save")
-    public OrderDto saveOrder(@RequestBody OrderDto orderData) {
-        UUID id = orderData.getId();
-        Order order = id == null ? null : orderService.getOrder(id);
-
-        if(order == null)
-        {
-            order = new Order(orderData);
-        } else {
-            order.fromDto(orderData);
-        }
-
+    public Order saveOrder(@RequestBody Order order) {
         orderService.saveOrder(order);
 
-        return order.toDto();
+        return order;
+    }
+
+    @PostMapping("/orders/start")
+    public Order startOrder(@RequestBody Order order) {
+        orderService.startOrder(order);
+        orderService.saveOrder(order);
+
+        return order;
     }
 
     @GetMapping("/orders/new")
-    public OrderDto createOrder() {
+    public Order createOrder() {
         Order order = new Order();
 
-        return order.toDto();
+        return order;
     }
 
     @PatchMapping("/orders/{id}/pause")

@@ -8,6 +8,9 @@ import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.ReplaceOptions;
+import com.mongodb.client.model.UpdateOptions;
 
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -74,7 +77,18 @@ public class MongoDatabaseAccess {
         return orderDocument.toJson();
 	}
 
+    @Deprecated
 	public void insertJson(MongoCollection<Document> ordersCollection, String json) {
         ordersCollection.insertOne(Document.parse(json));
-	}
+    }
+    
+    public void upsert(MongoCollection<Document> ordersCollection, String id, String json) {
+        Bson filter = Filters.eq("_id", id);
+
+        Document update = Document.parse(json);
+        ReplaceOptions options = new ReplaceOptions().upsert(true);
+
+        ordersCollection.replaceOne(filter, update, options);
+        // ordersCollection.updateOne(filter, update, options);
+    }
 }

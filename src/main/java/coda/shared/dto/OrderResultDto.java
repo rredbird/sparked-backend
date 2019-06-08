@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import coda.model.order.Classifier;
 import coda.model.order.Dataset;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -13,7 +14,7 @@ public class OrderResultDto {
     private UUID id;
     private String name;
     private String status;
-    private ClassifierDto classifier;
+    private Classifier classifier;
     private ValidationMethodDto validationMethod;
     private ValidationMetricDto validationMetric;
     private Dataset dataset;
@@ -34,8 +35,8 @@ public class OrderResultDto {
     public String getStatus() { return this.status; }
     public void setStatus(String status) { this.status = status; }
 
-    public ClassifierDto getClassifier() { return classifier; }
-    public void setClassifier(ClassifierDto classifier) { this.classifier = classifier; }
+    public Classifier getClassifier() { return classifier; }
+    public void setClassifier(Classifier classifier) { this.classifier = classifier; }
 
     public ValidationMethodDto getValidationMethod() { return validationMethod; }
 	public void setValidationMethod(ValidationMethodDto dto) { this.validationMethod = dto;	}

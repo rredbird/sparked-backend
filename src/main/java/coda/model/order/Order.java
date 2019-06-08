@@ -17,36 +17,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import coda.shared.logging.ILogging;
-import coda.shared.dto.OrderStatusDto;
-import coda.shared.dto.ClassifierDto;
-import coda.shared.dto.OrderDto;
-import coda.shared.interfaces.IDto;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Order implements IDto<Order, OrderDto> {
+public class Order {
     @Autowired
     private ILogging log;
 
     private List<Task> tasks;
-    private UUID id;
+    private UUID _id;
+    private UUID evaluationId;
     private String name = "";
-    private String status = "";
     
     public Order() {
         tasks = new LinkedList<Task>();
-        id = UUID.randomUUID();
+        _id = UUID.randomUUID();
     }
 
-    public Order(UUID id) {
+    public Order(UUID mongoId) {
         this();
-        this.id = id;
-    }
-
-    public Order(OrderDto orderDto) {
-        this();
-        id = orderDto.getId();
-        fromDto(orderDto);
+        this._id = mongoId;
     }
 
     public Order(String orderAsJsonString) {
@@ -67,17 +57,28 @@ public class Order implements IDto<Order, OrderDto> {
             log.exception(e);
         }
 
-        this.setId(order.getId());
+        this.set_Id(order.get_Id());
+        this.setEvaluationId(order.getEvaluationId());
         this.setName(order.getName());
-        this.setStatus(order.getStatus());
         this.setTasks(order.getTasks());
+        this.setStatus(order.getStatus());
     }
 
+    /// Mongo DB ID
     @JsonProperty("_id")
-    public UUID getId() { return id; }
+    public UUID get_Id() { return _id; }
     @JsonProperty("_id")
-    private void setId(UUID id) { this.id = id; }
+    public void set_Id(UUID id) { 
+        if(id.compareTo(UUID.fromString("00000000-0000-0000-0000-000000000000")) == 0) {
+            id = UUID.randomUUID();
+        }
+        this._id = id; 
+    }
     
+    /// Coda Evaluation ID
+    public UUID getEvaluationId() { return evaluationId; }
+    public void setEvaluationId(UUID evaluationId) { this.evaluationId = evaluationId; }
+
     // public List<Task> getTasks() { return tasks; }
 
     public String pause() {
@@ -112,41 +113,12 @@ public class Order implements IDto<Order, OrderDto> {
     public void setName(String name) { this.name = name; }
     public String getName() { return this.name; }
 
-    public void setStatus(String status) { this.status = status; }
-    public String getStatus() { return this.status; }
-    
     public List<Task> getTasks() { return this.tasks; }
     public void setTasks(List<Task> tasks) { this.tasks = tasks; }
 
-    @Override
-    @JsonIgnore
-    public Order fromDto(OrderDto dto) {
-        this.name = dto.getName();
-        this.status = dto.getStatus();
-        if(dto.getId().compareTo(UUID.fromString("00000000-0000-0000-0000-000000000000")) != 0) {
-            this.id = dto.getId();
-        } else {
-            this.id = UUID.randomUUID();
-        }
-        this.setTasks(new LinkedList<Task>());
-        this.tasks = dto.getTasks();
-
-        return this;
-    }
-
-    @Override
-    @JsonIgnore
-    public OrderDto toDto() {
-        OrderDto dto = new OrderDto();
-        
-        dto.setId(this.id);
-        dto.setName(this.name);
-        dto.setStatus(this.status);
-
-        dto.setTasks(this.getTasks());
-
-        return dto;
-    }
+    private String status = "";
+    public void setStatus(String status) { this.status = status; }
+    public String getStatus() { return this.status; }
 
     @JsonIgnore
     public String getJson() {

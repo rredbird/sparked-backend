@@ -6,69 +6,49 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import coda.shared.dto.MetricDto;
+import coda.shared.dto.EvaluationMetricDto;
 import coda.shared.interfaces.IDto;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Metric implements IDto<Metric, MetricDto> {
+public class Metric implements IDto<Metric, EvaluationMetricDto> {
     private String id;
-    private List<List<Double>> raw;
-    private List<Double> mean;
-    private List<Double> var;
-    private List<Double> max;
-    private List<Double> min;
+    private Boolean highValueBetter;
+    private Boolean isScalarMetric;
+    private Boolean isClassSpecific;
 
     public Metric() {
-        mean = new LinkedList<Double>();
-        var = new LinkedList<Double>();
-        max = new LinkedList<Double>();
-        min = new LinkedList<Double>();
-        raw = new LinkedList<List<Double>>();
     }
 
     public void setId(String id) { this.id = id; };
-    public void setRaw(List<List<Double>> raw) { this.raw = raw; };
-    public void setMean(List<Double> mean) { this.mean = mean; };
-    public void setVar(List<Double> var) { this.var = var; };
-    public void setMax(List<Double> max) { this.max = max; };
-    public void setMin(List<Double> min) { this.min = min; };
-
     public String getId() {
         return id;
     }
-    public List<List<Double>> getRaw() {
-        return raw;
-    }
-    public List<Double> getMean() {
-        return mean;
-    }
-    public List<Double> getVar() {
-        return var;
-    }
-    public List<Double> getMax() {
-        return max;
-    }
-    public List<Double> getMin() {
-        return min;
-    }
+    
+    public Boolean getHighValueBetter() { return highValueBetter; }
+    public void setHighValueBetter(Boolean highValueBetter) { this.highValueBetter = highValueBetter; }
 
+    public Boolean getScalarMetric() { return isScalarMetric; }
+    public void setScalarMetric(Boolean isScalarMetric) { this.isScalarMetric = isScalarMetric; }
+
+    public Boolean getIsClassSpecific() { return isClassSpecific; }
+    public void setIsClassSpecific(Boolean isClassSpecific) { this.isClassSpecific = isClassSpecific; }
+    
     @Override
-    public Metric fromDto(MetricDto dto) {
+    public Metric fromDto(EvaluationMetricDto dto) {
+        this.highValueBetter = dto.getHighValueBetter();
+        this.id = dto.getId();
+
         return this;
     }
 
     @Override
-    public MetricDto toDto() {
-        MetricDto dto = new MetricDto();
+    public EvaluationMetricDto toDto() {
+        EvaluationMetricDto dto = new EvaluationMetricDto();
 
-        dto.setId(this.id);
-        dto.setRaw(this.raw);
-        dto.setMean(this.mean);
-        dto.setVar(this.var);
-        dto.setMax(this.max);
-        dto.setMin(this.min);
-
+        dto.setId(this.getId());
+        dto.setHighValueBetter(this.getHighValueBetter());
+        
         return dto;
     }
 }

@@ -14,10 +14,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import coda.model.order.Classifiers;
 import coda.model.order.Datasets;
-import coda.model.order.EvaluationMetrics;
+import coda.model.order.Metrics;
 import coda.model.order.ValidationMethods;
-import coda.shared.dto.ClassifiersDto;
 import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;
 
@@ -28,12 +28,12 @@ public class ConfigurationService implements IConfigurationService {
     @Autowired
     private ILogging log;
 
-    public ClassifiersDto getClassifiers() {
-        ClassifiersDto classifiers = null;
+    public Classifiers getClassifiers() {
+        Classifiers classifiers = null;
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            classifiers = mapper.readValue(loadClassifiers(), ClassifiersDto.class);
+            classifiers = mapper.readValue(loadClassifiers(), Classifiers.class);
         } catch (JsonGenerationException e) {
             log.exception(e);
         } catch (JsonMappingException e) {
@@ -68,12 +68,12 @@ public class ConfigurationService implements IConfigurationService {
         return validationMethods;
     }
 
-    public EvaluationMetrics getEvaluationMetrics() {
-        EvaluationMetrics evaluationMetrics = null;
+    public Metrics getEvaluationMetrics() {
+        Metrics evaluationMetrics = null;
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            evaluationMetrics = mapper.readValue(loadEvaluationMetrics(), EvaluationMetrics.class);
+            evaluationMetrics = mapper.readValue(loadEvaluationMetrics(), Metrics.class);
         } catch (JsonGenerationException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {

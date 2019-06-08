@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import coda.shared.dto.*;
 import coda.datalayer.MongoDatabaseAccess;
+import coda.model.order.Classifier;
 import coda.model.order.Dataset;
-import coda.model.order.EvaluationMetric;
+import coda.model.order.Metric;
 import coda.model.order.ValidationMethod;
 import coda.configurationService.IConfigurationService;
 import coda.shared.logging.ILogging;
@@ -36,7 +37,7 @@ public class ConfigurationController {
     }
 
     @GetMapping("/classifiers")
-    public List<ClassifierDto> classifiers() {
+    public List<Classifier> classifiers() {
         return configurationService.getClassifiers().getClassifiers();
     }
 
@@ -46,7 +47,7 @@ public class ConfigurationController {
     }
 
     @GetMapping("/evaluationmetrics")
-    public List<EvaluationMetric> evaluationMetrics() {
+    public List<Metric> evaluationMetrics() {
         return configurationService.getEvaluationMetrics().getMetrics();
     }
 

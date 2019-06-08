@@ -1,5 +1,6 @@
 package coda.model.order;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -14,28 +15,39 @@ public class EvaluationStatusList {
     @JsonProperty("evaluation stati")
     private List<EvaluationStatusWrapper> statusList = new LinkedList<EvaluationStatusWrapper>();
 
+    HashMap<UUID, String> orderIdToStatusMap = new HashMap<UUID, String>();
+
+    public void buildOrderToStatusMap() {
+        for(EvaluationStatusWrapper wrapper : statusList) {
+            for(EvaluationStatus status : wrapper.getEvaluationStatus()) {
+                orderIdToStatusMap.put(status.getId(), status.getStatus());
+            }
+        }
+    }
+
     public List<EvaluationStatusWrapper> getStatusList() { return this.statusList; }
     public void getStatusList(List<EvaluationStatusWrapper> statusList) { this.statusList = statusList; }
 
     public String getStatus(UUID orderId) { 
-        for (EvaluationStatusWrapper statusWrapper : statusList) {
-            for (EvaluationStatus status : statusWrapper.getEvaluationStatus()) {
-                if(status.getId() == orderId) {
-                    return status.getStatus();
-                }
-            }
+        if(!containsOrder(orderId)) {
+            return null;
         }
-        return null;
+        return orderIdToStatusMap.get(orderId);
     }
 
     public Boolean containsOrder(UUID orderId) { 
-        for (EvaluationStatusWrapper statusWrapper : statusList) {
-            for (EvaluationStatus status : statusWrapper.getEvaluationStatus()) {
-                if(status.getId() == orderId) {
-                    return true;
-                }
-            }
+        return orderIdToStatusMap.containsKey(orderId);
+    }
+
+    @Override
+    public String toString() {
+        String retVal = "";
+
+        for(EvaluationStatusWrapper wrapper : statusList) {
+            retVal += wrapper.toString();
         }
-        return false;
+
+        return retVal + "\n";
     }
 }
+    

@@ -8,14 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import coda.model.order.Order;
-import coda.model.order.OrderResult;
-import coda.shared.dto.OrderDto;
+
+import coda.model.evaluation.Evaluations;
 import coda.shared.dto.OrderResultDto;
 
 @Component("evaluationService")
 public interface IOrderService {
-    public void RunTask(UUID taskId);
-
     /**
      * return values are 
      * Running
@@ -33,6 +31,8 @@ public interface IOrderService {
 
 	public void saveOrder(Order order);
 
-	public OrderResult getResult(UUID id);
+	public Evaluations getResult(UUID id);
+
+	public void startOrder(Order order);
 }
 
