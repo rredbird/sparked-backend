@@ -3,12 +3,9 @@ package coda.model.order;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import coda.shared.dto.ClassifierParameterDto;
-import coda.shared.interfaces.IDto;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClassifierParameter implements IDto<ClassifierParameter, ClassifierParameterDto> {
+public class ClassifierParameter {
     private String name;
     private String doc;
     private String value;
@@ -42,26 +39,6 @@ public class ClassifierParameter implements IDto<ClassifierParameter, Classifier
 
     public String getJavaType() {
         return javaType;
-    }
-
-    @Override
-    public ClassifierParameter fromDto(ClassifierParameterDto dto) {
-        this.setDoc(dto.getDoc());
-        this.setJavaType(dto.getJavaType());
-        this.setName(dto.getName());
-        this.setParamType(dto.getParamType());
-        this.setValue(dto.getValue());
-        return this;
-    }
-
-    @Override
-    public ClassifierParameterDto toDto() {
-        ClassifierParameterDto dto = new ClassifierParameterDto();
-
-        dto.setName(this.name);
-        dto.setValue(this.value);
-
-        return dto;
     }
 }
 

@@ -28,6 +28,7 @@ public class Order {
     private UUID _id;
     private UUID evaluationId;
     private String name = "";
+    private String status = "";
     
     public Order() {
         tasks = new LinkedList<Task>();
@@ -116,7 +117,6 @@ public class Order {
     public List<Task> getTasks() { return this.tasks; }
     public void setTasks(List<Task> tasks) { this.tasks = tasks; }
 
-    private String status = "";
     public void setStatus(String status) { this.status = status; }
     public String getStatus() { return this.status; }
 

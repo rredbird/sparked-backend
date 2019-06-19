@@ -3,14 +3,11 @@ package coda.orderService;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import coda.model.order.Order;
 
 import coda.model.evaluation.Evaluations;
-import coda.shared.dto.OrderResultDto;
 
 @Component("evaluationService")
 public interface IOrderService {

@@ -11,17 +11,13 @@ public class Task {
     private ILogging log;
 
     private UUID id;
-    private Order order;
 
     private Classifier classifier;
     private Dataset dataset;
     private ValidationMethod validationMethod;
     private Metric metric;
+    private String status = "";
     
-    public Task(Order order) {
-        id = UUID.randomUUID();
-        this.order = order;
-    }
     public Task() {
         id = UUID.randomUUID();
     }
@@ -43,7 +39,6 @@ public class Task {
     public void setValidationMethod(ValidationMethod validationMethod) { this.validationMethod = validationMethod; } 
     public void setMetric(Metric metric) { this.metric = metric; } 
 
-    private String status = "";
     public void setStatus(String status) { this.status = status; }
     public String getStatus() { return this.status; }
 }
