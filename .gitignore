@@ -60,3 +60,4 @@ Thumbs.db
 # .gradle
 .gradle
 
+node_module/*
