@@ -6,12 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import coda.shared.dto.EvaluationMetricDto;
-import coda.shared.interfaces.IDto;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Metric implements IDto<Metric, EvaluationMetricDto> {
+public class Metric {
     private String id;
     private Boolean highValueBetter;
     private Boolean isScalarMetric;
@@ -33,24 +30,6 @@ public class Metric implements IDto<Metric, EvaluationMetricDto> {
 
     public Boolean getIsClassSpecific() { return isClassSpecific; }
     public void setIsClassSpecific(Boolean isClassSpecific) { this.isClassSpecific = isClassSpecific; }
-    
-    @Override
-    public Metric fromDto(EvaluationMetricDto dto) {
-        this.highValueBetter = dto.getHighValueBetter();
-        this.id = dto.getId();
-
-        return this;
-    }
-
-    @Override
-    public EvaluationMetricDto toDto() {
-        EvaluationMetricDto dto = new EvaluationMetricDto();
-
-        dto.setId(this.getId());
-        dto.setHighValueBetter(this.getHighValueBetter());
-        
-        return dto;
-    }
 }
 
 

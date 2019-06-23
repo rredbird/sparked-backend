@@ -1,9 +1,6 @@
 package coda.model.order;
 
-import coda.shared.dto.ValidationParameterDto;
-import coda.shared.interfaces.IDto;
-
-public class ValidationParameter implements IDto<ValidationParameter, ValidationParameterDto> {
+public class ValidationParameter {
     private String name;
     private String doc;
     private String value;
@@ -21,20 +18,5 @@ public class ValidationParameter implements IDto<ValidationParameter, Validation
 
     public String getDoc() { return doc; }
     public void setDoc(String doc) { this.doc = doc; }
-
-    @Override
-    public ValidationParameter fromDto(ValidationParameterDto dto) {
-        return this;
-    }
-
-    @Override
-    public ValidationParameterDto toDto() {
-        ValidationParameterDto dto = new ValidationParameterDto();
-
-        dto.setName(this.name);
-        dto.setValue(this.value);
-
-        return dto;
-    }
 }
 

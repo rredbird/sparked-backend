@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import coda.shared.dto.*;
 import coda.datalayer.MongoDatabaseAccess;
 import coda.model.order.Classifier;
 import coda.model.order.Dataset;

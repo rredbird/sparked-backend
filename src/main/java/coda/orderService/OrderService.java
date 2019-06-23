@@ -141,9 +141,15 @@ public class OrderService implements IOrderService {
     Timer timer = new Timer(true);
     private EvaluationStatusList evaluationStatusList = null;
     String lockObject = "";
+    Boolean loadedFromProperties = false;
 
     class RemindTask extends TimerTask {
         public void run() {
+            if(loadedFromProperties == false) {
+                timer.schedule(new RemindTask(), 10 * 1000, 
+                        properties.getOrderStatusUpdateIntervall() * 1000); 
+                loadedFromProperties = true;
+            }
             updateEvaluationStatusList();        
         }
     }

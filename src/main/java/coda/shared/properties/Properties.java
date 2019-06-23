@@ -12,6 +12,8 @@ public class Properties {
     private int mongoConnectionTimeout = 1000;
     private int mongoServerSelectionTimeout = 1000;
     private int mongoSocketTimeout = 0;
+    private int orderStatusIntervall = 60;
+    private String codaIp =  "http://10.0.2.55:5000/";
     
     @Autowired
     private ILogging log;
@@ -66,6 +68,8 @@ public class Properties {
         setMongoConnectionTimeout(properties.getProperty("mongo_Connection_Timeout"));
         setMongoServerSelectionTimeout(properties.getProperty("mongo_Server_Selection_Timeout"));
         setMongoSocketTimeout(properties.getProperty("mongo_Socket_Timeout"));
+        setOrderStatusUpdateIntervall(properties.getProperty("order_Status_Intervall"));
+        setCodaIP(properties.getProperty("coda_backend_ip"));
     }
 
 	public int getMongoConnectionTimeout() { return this.mongoConnectionTimeout; }
@@ -81,6 +85,22 @@ public class Properties {
 	public int getMongoSocketTimeout() { return 1000; }
 	public void setMongoSocketTimeout(String mongoSocketTimeout) { 
         this.mongoSocketTimeout = Integer.parseInt(mongoSocketTimeout); 
-    }    
+    }
+
+    /// Get and set the intervall in which the listAllEvaluationStatus endpoint is called 
+    /// to get status information on all orders.
+	public int getOrderStatusUpdateIntervall() {
+		return this.orderStatusIntervall;
+    }
+    public void setOrderStatusUpdateIntervall(String value) {
+		this.orderStatusIntervall = Integer.parseInt(value);
+	}
+
+	public String getCodaIP() {
+		return this.codaIp;
+    }
+    public void setCodaIP(String value) {
+        this.codaIp = value;
+    }
 }
 

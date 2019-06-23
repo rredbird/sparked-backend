@@ -163,9 +163,9 @@ public class ConfigurationService implements IConfigurationService {
         return fileData;
     }
 
-    public static String apiCall(String urlPath) throws Exception {
+    public String apiCall(String urlPath) throws Exception {
         StringBuilder result = new StringBuilder();
-        URL url = new URL("http://10.0.2.55:5000/evaluation/" + urlPath);
+        URL url = new URL(properties.getCodaIP() + "evaluation/" + urlPath);
         HttpURLConnection.setFollowRedirects(false);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setConnectTimeout(1000);

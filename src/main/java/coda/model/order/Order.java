@@ -80,37 +80,6 @@ public class Order {
     public UUID getEvaluationId() { return evaluationId; }
     public void setEvaluationId(UUID evaluationId) { this.evaluationId = evaluationId; }
 
-    // public List<Task> getTasks() { return tasks; }
-
-    public String pause() {
-        // for (Task task: tasks) {
-        //     if(task.isRunning() || task.isFinished()) {
-        //         return "Started orders may not be paused.";
-        //     }
-        //     if(task.isPaused()) {
-        //         return "Order is already paused.";
-        //     }
-        // }
-        // for (Task task: tasks) {
-        //     task.pause();
-        // }
-        return "OK";
-    }
-    
-    public String carryOn() {
-        // for (Task task: tasks) {
-        //     if(task.isPaused()) {
-        //         for (Task t: tasks) {
-        //             t.carryOn();
-        //         }
-        //         return "OK";
-        //     } else {
-        //         return "Order is not paused.";
-        //     }
-        // }
-        return "OK";
-    }
-
     public void setName(String name) { this.name = name; }
     public String getName() { return this.name; }
 

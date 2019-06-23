@@ -6,9 +6,6 @@
     </File>
 </Appenders>
 
-
-
-
   <Loggers>
     <Root level="warn">
     </Root>

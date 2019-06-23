@@ -11,19 +11,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
-import java.util.Map.Entry;
-
-import com.mongodb.Block;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-
-import org.bson.Document;
-import org.bson.conversions.Bson;
 
 import coda.shared.properties.Properties;
 import coda.shared.logging.ILogging;

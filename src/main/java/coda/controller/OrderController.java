@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import coda.orderService.IOrderService;
@@ -72,16 +71,6 @@ public class OrderController {
         Order order = new Order();
 
         return order;
-    }
-
-    @PatchMapping("/orders/{id}/pause")
-    public String pauseOrder(@PathVariable UUID id) {
-        return orderService.getOrder(id).pause();
-    }
-    
-    @PatchMapping("/orders/{id}/continue")
-    public String continueOrder(@PathVariable UUID id) {
-        return orderService.getOrder(id).carryOn();
     }
 }
 
