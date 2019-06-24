@@ -36,8 +36,9 @@ public class Coda {
         OutputStream propertiesOutputStream = null;
         java.util.Properties properties = new java.util.Properties();
         
-        properties.setProperty("mongo_Port", "27017");
-        properties.setProperty("mongo_IP", "127.0.0.1");
+        //Set properties to save here
+        //properties.setProperty("mongo_Port", "" + "27017");
+        //properties.setProperty("mongo_IP", "127.0.0.1");
 
         try {
             propertiesOutputStream = new FileOutputStream("config.properties");

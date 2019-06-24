@@ -43,20 +43,6 @@ public class OrderService implements IOrderService {
         timer.schedule(new RemindTask(), 10 * 1000, 60 * 1000); //first update after 10s, updates every 60s.
     }
 
-    private String loadClassifiers() {
-        String classifiersJson = "";
-        try {
-            classifiersJson = CodaApiAccess.get("listClassifiers");
-        } catch (Exception e) {
-            log.exception(e);
-            log.error("Classifiers could not be loaded. Loading local defaults instead.");
-            classifiersJson = CodaApiAccess.fileCall("classifiers.json");
-        }
-
-        return classifiersJson;
-
-    }
-
     private static String loadEvaluationList() {
         String evaluationListJson = "";
         try {
@@ -79,24 +65,6 @@ public class OrderService implements IOrderService {
             resultJson = CodaApiAccess.fileCall("allEvaluationStatus.json");
         }
         return resultJson;
-    }
-
-    private String loadValidationMethodExample() {
-        String validationMethodJson = null;
-        validationMethodJson = CodaApiAccess.fileCall("validationmethods.json");
-        return validationMethodJson;
-    }
-
-    private String loadEvaluationMetricsExample() {
-        String evaluationMetricsJson = null;
-        evaluationMetricsJson = CodaApiAccess.fileCall("evaluationmetrics.json");
-        return evaluationMetricsJson;
-    }
-
-    private String loadDatasetsExample() {
-        String datasetsJson = null;
-        datasetsJson = CodaApiAccess.fileCall("datasets.json");
-        return datasetsJson;
     }
 
     @Override
@@ -220,6 +188,10 @@ public class OrderService implements IOrderService {
 
     @Override
     public void saveOrder(Order order) {
+        if(order.getStatus().equals("starting")) {
+            order.setStatus("new");
+            startOrder(order);
+        }
         mongoDatabaseAccess.upsert(mongoDatabaseAccess.getOrdersCollection(), order.get_Id().toString(), order.getJson());
     }
     

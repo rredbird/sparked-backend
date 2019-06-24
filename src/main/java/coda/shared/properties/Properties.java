@@ -9,11 +9,13 @@ public class Properties {
     private int mongoDatabasePort = 27017;
     private String mongoDatabaseIP = "127.0.0.1";
     private String mongoDatabaseName = "coda_db";
+    private String mongoCollectionName = "orders";
     private int mongoConnectionTimeout = 1000;
     private int mongoServerSelectionTimeout = 1000;
     private int mongoSocketTimeout = 0;
     private int orderStatusIntervall = 60;
     private String codaIp =  "http://10.0.2.55:5000/";
+    private Boolean clearDatabaseOnStartup = false;
     
     @Autowired
     private ILogging log;
@@ -64,12 +66,16 @@ public class Properties {
         log.debug("load properties"); 
         setMongoDatabasePort(properties.getProperty("mongo_Port"));
         setMongoDatabaseIP(properties.getProperty("mongo_IP"));
-        setMongoDatabaseName(properties.getProperty("mongo_Name"));
+        setMongoCollectionName(properties.getProperty("mongo_Collection_Name"));
+        setMongoDatabaseName(properties.getProperty("mongo_Database_Name"));
         setMongoConnectionTimeout(properties.getProperty("mongo_Connection_Timeout"));
         setMongoServerSelectionTimeout(properties.getProperty("mongo_Server_Selection_Timeout"));
         setMongoSocketTimeout(properties.getProperty("mongo_Socket_Timeout"));
         setOrderStatusUpdateIntervall(properties.getProperty("order_Status_Intervall"));
         setCodaIP(properties.getProperty("coda_backend_ip"));
+        setClearDatabaseOnStartup(properties.getProperty("clear_database_on_startup"));
+
+        
     }
 
 	public int getMongoConnectionTimeout() { return this.mongoConnectionTimeout; }
@@ -101,6 +107,20 @@ public class Properties {
     }
     public void setCodaIP(String value) {
         this.codaIp = value;
+    }
+
+	public String getMongoCollectionName() {
+		return this.mongoCollectionName;
+    }
+    public void setMongoCollectionName(String value) {
+        this.mongoCollectionName = value;
+    }
+
+    public Boolean getClearDatabaseOnStartup() {
+		return this.clearDatabaseOnStartup;
+    }
+    public void setClearDatabaseOnStartup(String value) {
+        this.clearDatabaseOnStartup = Boolean.parseBoolean(value);
     }
 }
 

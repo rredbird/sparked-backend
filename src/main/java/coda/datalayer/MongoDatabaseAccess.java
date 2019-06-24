@@ -10,7 +10,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.ReplaceOptions;
-import com.mongodb.client.model.UpdateOptions;
 
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -47,7 +46,13 @@ public class MongoDatabaseAccess {
         mongoClient = new MongoClient(properties.getMongoDatabaseIP(), properties.getMongoDatabasePort());
 
         db = mongoClient.getDatabase(properties.getMongoDatabaseName());
-        ordersCollection = db.getCollection("orders");
+        ordersCollection = db.getCollection(properties.getMongoCollectionName());
+
+        if(properties.getClearDatabaseOnStartup()) {
+            ordersCollection.drop();
+            
+            ordersCollection = db.getCollection(properties.getMongoCollectionName());
+        }
     }
 
     public MongoCollection<Document> getOrdersCollection() { return ordersCollection; }
