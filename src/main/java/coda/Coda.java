@@ -9,6 +9,7 @@ import javax.annotation.PreDestroy;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Coda {
         //properties.setProperty("mongo_IP", "127.0.0.1");
 
         try {
-            propertiesOutputStream = new FileOutputStream("config.properties");
+            propertiesOutputStream = new FileOutputStream("application.properties");
             properties.store(propertiesOutputStream, null);
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,9 +65,9 @@ public class Coda {
         InputStream propertiesInputStream = null;
 
         try {
-            propertiesInputStream = new FileInputStream("config.properties");
-
-            propertiesLoader.load(propertiesInputStream);
+            URL configURL = Coda.class.getClassLoader().getResource("config.properties");
+            
+            propertiesLoader.load(configURL.openStream());
             properties.load(propertiesLoader);
         } catch (IOException e) {
             e.printStackTrace();

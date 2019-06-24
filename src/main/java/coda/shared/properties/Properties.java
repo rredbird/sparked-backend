@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import coda.shared.logging.ILogging;
 
 public class Properties {
-    public static final String CorsOriginAdress = "http://localhost:4200";
+    public static final String CorsOriginAdress = "*";//"http://10.0.2.10:80";
     
     private int mongoDatabasePort = 27017;
     private String mongoDatabaseIP = "127.0.0.1";
